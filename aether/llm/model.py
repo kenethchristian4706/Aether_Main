@@ -338,7 +338,11 @@ def generate_completion(
     )
 
     try:
-        timeout_val = getattr(config, "COMPLETION_TIMEOUT", 60.0)
+        if port == config.PLANNER_PORT:
+            timeout_val = getattr(config, "PLANNER_COMPLETION_TIMEOUT", getattr(config, "COMPLETION_TIMEOUT", 60.0))
+        else:
+            timeout_val = getattr(config, "ROUTER_COMPLETION_TIMEOUT", getattr(config, "COMPLETION_TIMEOUT", 60.0))
+            
         with urllib.request.urlopen(req, timeout=timeout_val) as response:
             res_data = json.loads(response.read().decode('utf-8'))
             content = res_data.get("content", "").strip()
