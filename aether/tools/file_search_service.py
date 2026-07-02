@@ -26,6 +26,14 @@ def handle_file_suggestions(func):
     return wrapper
 
 class FileSearchService:
+    _QUERY_ALIASES = {
+        "word": ["docx", "doc"],
+        "excel": ["xlsx", "xls", "sheet", "worksheet", "workbook"],
+        "spreadsheet": ["xlsx", "xls", "sheet", "worksheet", "workbook"],
+        "document": ["docx", "doc", "pdf"],
+        "pdf": ["pdf"],
+    }
+
     @staticmethod
     def get_user_directories() -> List[Path]:
         user_profile = os.environ.get("USERPROFILE", os.path.expanduser("~"))
@@ -84,6 +92,53 @@ class FileSearchService:
             except Exception:
                 pass
         return matches
+
+    @staticmethod
+    def _normalize_terms(value: str) -> List[str]:
+        return [term for term in re.split(r'[\s_\-\.]+', value.lower()) if term]
+
+    @staticmethod
+    def _expand_query_terms(value: str) -> List[str]:
+        base_terms = FileSearchService._normalize_terms(value)
+        expanded = []
+        seen = set()
+        for term in base_terms:
+            for candidate in [term] + FileSearchService._QUERY_ALIASES.get(term, []):
+                if candidate not in seen:
+                    seen.add(candidate)
+                    expanded.append(candidate)
+        return expanded
+
+    @staticmethod
+    def _score_candidate(query: str, filename: str, relative_location: str = "") -> float:
+        query_lower = query.lower().strip()
+        filename_lower = filename.lower().strip()
+        query_terms = FileSearchService._expand_query_terms(query)
+        filename_terms = set(FileSearchService._normalize_terms(filename))
+
+        score = difflib.SequenceMatcher(None, query_lower, filename_lower).ratio()
+
+        if query_lower == filename_lower:
+            score += 1.0
+        if query_lower in filename_lower:
+            score += 0.45
+        if filename_lower.startswith(query_lower):
+            score += 0.25
+
+        if query_terms:
+            matched_terms = sum(1 for term in query_terms if term in filename_terms)
+            score += (matched_terms / len(query_terms)) * 1.2
+
+            filename_suffix = Path(filename_lower).suffix.lstrip('.')
+            if filename_suffix and filename_suffix in query_terms:
+                score += 0.45
+
+            if relative_location:
+                rel_lower = relative_location.lower()
+                if any(term in rel_lower for term in query_terms):
+                    score += 0.1
+
+        return score
 
     @staticmethod
     def resolve(name_or_path: str, is_directory: Optional[bool] = None) -> Path:
@@ -156,21 +211,21 @@ class FileSearchService:
                     
             rows = [{"absolute_path": str(m), "relative_location": compute_relative_location(m), "is_directory": 1 if m.is_dir() else 0} for m in fallback_matches]
 
-        # 2. Handle matches
-        if len(rows) == 1:
-            resolved_path = Path(rows[0]["absolute_path"])
-            if resolved_path.exists():
-                return resolved_path
-
-        # Determine suggestions (either multiple exact matches, or similar matches)
+        # Determine suggestions (exact matches or similar matches), but never auto-open
+        # non-absolute queries. The user must choose from the returned list.
         suggestions = []
-        if len(rows) > 1:
+        if rows:
             for idx, r in enumerate(rows[:5], 1):
                 suggestions.append({
                     "id": idx,
                     "filename": Path(r["absolute_path"]).name,
                     "path": r["absolute_path"],
-                    "is_directory": bool(r["is_directory"])
+                    "is_directory": bool(r["is_directory"]),
+                    "score": FileSearchService._score_candidate(
+                        name_or_path,
+                        Path(r["absolute_path"]).name,
+                        r["relative_location"] or ""
+                    )
                 })
         else:
             # Search for similar filenames (suggestions)
@@ -178,6 +233,8 @@ class FileSearchService:
 
         if not suggestions:
             raise FileNotFoundError(f"I couldn't find any matching files or folders for '{name_or_path}'.")
+
+        suggestions.sort(key=lambda item: item.get("score", 0.0), reverse=True)
 
         # 3. Prompt the user using prompt_user_sync
         from aether.api.prompt import prompt_user_sync
@@ -216,14 +273,15 @@ class FileSearchService:
     def search_suggestions(query: str, is_directory: Optional[bool] = None) -> List[Dict[str, Any]]:
         # Clean query and get filename part
         clean_query = Path(query).name
-        words = [w for w in re.split(r'[\s_\-\.]+', clean_query) if w]
+        words = FileSearchService._expand_query_terms(clean_query)
         if not words:
             return []
             
         conditions = []
         params = []
         for w in words:
-            conditions.append("filename LIKE ?")
+            conditions.append("filename LIKE ? OR relative_location LIKE ?")
+            params.append(f"%{w}%")
             params.append(f"%{w}%")
             
         sql = "SELECT filename, absolute_path, is_directory, relative_location FROM indexed_files WHERE (" + " OR ".join(conditions) + ")"
@@ -239,20 +297,10 @@ class FileSearchService:
         
         # Rank candidates using difflib
         candidates = []
-        query_lower = clean_query.lower()
         for row in rows:
             filename = row["filename"]
-            filename_lower = filename.lower()
-            
-            ratio = difflib.SequenceMatcher(None, query_lower, filename_lower).ratio()
-            
-            # Boosts
-            if query_lower in filename_lower:
-                ratio += 0.5
-            if filename_lower.startswith(query_lower):
-                ratio += 0.3
-                
-            candidates.append((ratio, row))
+            score = FileSearchService._score_candidate(clean_query, filename, row["relative_location"] or "")
+            candidates.append((score, row))
             
         # Sort by ratio descending
         candidates.sort(key=lambda x: x[0], reverse=True)
@@ -270,7 +318,8 @@ class FileSearchService:
                 "id": len(suggestions) + 1,
                 "filename": row["filename"],
                 "path": abs_path,
-                "is_directory": bool(row["is_directory"])
+                "is_directory": bool(row["is_directory"]),
+                "score": ratio
             })
             if len(suggestions) >= 5:
                 break
