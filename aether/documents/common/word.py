@@ -20,7 +20,7 @@ def create_word_doc(file_path: Path, content: str | None = None, overwrite: bool
     file_path.parent.mkdir(parents=True, exist_ok=True)
     
     try:
-        doc = Document()
+        doc = Document()            
         if content:
             doc.add_paragraph(content)
         else:
