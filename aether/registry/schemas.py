@@ -181,6 +181,8 @@ class SendEmailSchema(BaseModel):
 class ListEmailsSchema(BaseModel):
     limit: Optional[int] = Field(10, description="The maximum number of emails to retrieve (default: 10).")
     unread_only: Optional[bool] = Field(False, description="If True, retrieve only unread emails (default: False).")
+    date_type: Optional[str] = Field(None, description="Optional date filter type: 'today', 'yesterday', or 'specific'.")
+    date: Optional[str] = Field(None, description="Optional specific date formatted as 'YYYY-MM-DD' (required only when date_type is 'specific').")
 
 class ReadEmailSchema(BaseModel):
     email_id: Optional[str] = Field("latest", description="The ID/UID of the email to read, or 'latest' to read the most recent email.")

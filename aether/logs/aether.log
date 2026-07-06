@@ -2940,3 +2940,888 @@ filename
 2026-07-02 12:44:53,357 [INFO] aether.llm.model: Server (router) stopped gracefully.
 2026-07-02 12:44:53,364 [INFO] aether.llm.model: Stopping sidecar server (planner)...
 2026-07-02 12:44:53,747 [INFO] aether.llm.model: Server (planner) stopped gracefully.
+2026-07-02 18:54:01,666 [INFO] aether.llm.model: Starting llama-server.exe sidecar for ROUTER. Port: 12345
+2026-07-02 18:54:01,667 [INFO] aether.llm.model: Using model: C:\Users\lenovo\dev\ather\JARVIS_MARK_6\JARVIS_MARK_13\aether\models\gguf\qwen2.5-3b-instruct-q4_k_m.gguf
+2026-07-02 18:54:06,241 [INFO] aether.llm.model: llama-server sidecar (router) is ready at http://127.0.0.1:12345
+2026-07-02 18:54:06,757 [INFO] aether.llm.model: Starting llama-server.exe sidecar for PLANNER. Port: 12346
+2026-07-02 18:54:06,757 [INFO] aether.llm.model: Using model: C:\Users\lenovo\dev\ather\JARVIS_MARK_6\JARVIS_MARK_13\aether\models\gguf\qwen2.5-coder-7b-instruct-q4_k_m.gguf
+2026-07-02 18:54:19,398 [INFO] aether.llm.model: llama-server sidecar (planner) is ready at http://127.0.0.1:12346
+2026-07-02 18:58:07,342 [INFO] aether.email.email_manager: Attempting automatic email reconnection...
+2026-07-02 18:58:08,252 [INFO] aether.email.smtp_client: Validating SMTP connection to smtp.gmail.com:465 for christiankeneth1@gmail.com
+2026-07-02 18:58:18,302 [ERROR] aether.email.smtp_client: SMTP Connection failed: timed out
+2026-07-02 18:58:18,305 [WARNING] aether.email.email_manager: Automatic reconnection failed (credentials might be invalid or network offline): Failed to connect or log in to SMTP server smtp.gmail.com:465: timed out
+2026-07-02 18:58:34,231 [INFO] aether.assistant: User Query: summary of today's mails
+2026-07-02 18:58:34,234 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Analyzing query...'}
+2026-07-02 18:58:34,237 [INFO] aether.assistant: Normalized Query: summary of today's mails
+2026-07-02 18:58:34,237 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Selecting appropriate tool categories...'}
+2026-07-02 18:58:34,240 [INFO] aether.llm.category_selector: Running LLM Router stage on port 12345...
+2026-07-02 18:58:34,267 [INFO] aether.llm.model: llama-server sidecar (router) is already running at http://127.0.0.1:12345/health. Reusing it.
+2026-07-02 18:59:02,734 [INFO] aether.assistant: Router Output: {'intent': 'email_summary', 'complexity': 'single_step', 'categories': ['Email'], 'filters': {'date_type': 'today'}}
+2026-07-02 18:59:02,735 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Generating email summary...'}
+2026-07-02 18:59:02,741 [INFO] aether.email.email_summary: Email Summary Started
+2026-07-02 18:59:02,742 [WARNING] aether.email.email_summary: Email Summary Failed: Email not connected
+2026-07-02 18:59:02,743 [INFO] aether.api.events: Emitting event: {'type': 'error', 'message': 'No email account is connected.\nPlease connect your email in Settings.'}
+2026-07-02 18:59:12,668 [INFO] aether.email.email_manager: Initiating connection validation for christiankeneth1@gmail.com
+2026-07-02 18:59:12,668 [INFO] aether.email.smtp_client: Validating SMTP connection to smtp.gmail.com:465 for christiankeneth1@gmail.com
+2026-07-02 18:59:22,683 [ERROR] aether.email.smtp_client: SMTP Connection failed: timed out
+2026-07-02 18:59:22,684 [WARNING] aether.email.connection: Email error in connect: Failed to connect or log in to SMTP server smtp.gmail.com:465: timed out
+2026-07-02 19:00:06,484 [INFO] aether.email.email_manager: Initiating connection validation for christiankeneth1@gmail.com
+2026-07-02 19:00:06,487 [INFO] aether.email.smtp_client: Validating SMTP connection to smtp.gmail.com:465 for christiankeneth1@gmail.com
+2026-07-02 19:00:08,661 [INFO] aether.email.smtp_client: SMTP validation succeeded.
+2026-07-02 19:00:08,663 [INFO] aether.email.imap_client: Validating IMAP connection to imap.gmail.com:993 for christiankeneth1@gmail.com
+2026-07-02 19:00:12,264 [INFO] aether.email.imap_client: IMAP validation succeeded.
+2026-07-02 19:00:12,264 [INFO] aether.email.credential_store: Saving credentials for email: christiankeneth1@gmail.com
+2026-07-02 19:00:12,408 [INFO] aether.email.email_manager: Successfully connected to email: christiankeneth1@gmail.com
+2026-07-02 19:00:13,418 [INFO] aether.assistant: User Query: summary of today's mails
+2026-07-02 19:00:13,419 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Analyzing query...'}
+2026-07-02 19:00:13,421 [INFO] aether.assistant: Normalized Query: summary of today's mails
+2026-07-02 19:00:13,421 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Selecting appropriate tool categories...'}
+2026-07-02 19:00:13,426 [INFO] aether.llm.category_selector: Running LLM Router stage on port 12345...
+2026-07-02 19:00:13,431 [INFO] aether.llm.model: llama-server sidecar (router) is already running at http://127.0.0.1:12345/health. Reusing it.
+2026-07-02 19:00:16,529 [INFO] aether.assistant: Router Output: {'intent': 'email_summary', 'complexity': 'single_step', 'categories': ['Email'], 'filters': {'date_type': 'today'}}
+2026-07-02 19:00:16,530 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Generating email summary...'}
+2026-07-02 19:00:16,531 [INFO] aether.email.email_summary: Email Summary Started
+2026-07-02 19:00:16,531 [INFO] aether.email.email_summary: Date Filter: today
+2026-07-02 19:00:18,514 [INFO] aether.email.imap_client: IMAP search criterion: ON 02-Jul-2026
+2026-07-02 19:00:26,716 [INFO] aether.email.email_summary: Emails Retrieved: 8
+2026-07-02 19:00:26,717 [INFO] aether.email.email_summary: Emails Summarized: 8
+2026-07-02 19:01:23,567 [INFO] aether.email.email_summary: LLM Prompt Length: 3299
+2026-07-02 19:01:23,571 [INFO] aether.llm.model: llama-server sidecar (planner) is already running at http://127.0.0.1:12346/health. Reusing it.
+2026-07-02 19:03:02,233 [INFO] aether.email.email_summary: Summary Generated Successfully
+2026-07-02 19:03:02,233 [INFO] aether.email.email_summary: Execution Time: 165.7027s
+2026-07-02 19:03:02,234 [INFO] aether.api.events: Emitting event: {'type': 'final_response', 'message': "Email Summary — Today\n\n**Email Summaries:**\n\n1. **From:** Google  \n   **Subject:** Keneth, review your Google Account settings  \n   **Summary:** Google account tips and privacy/security settings review.\n\n2. **From:** OpenAI  \n   **Subject:** New sign-in to your OpenAI account  \n   **Summary:** New sign-in detected in OpenAI account.\n\n3. **From:** Google  \n   **Subject:** Security alert  \n   **Summary:** Security alert for new sign-in on a Mac device.\n\n4. **From:** GitHub  \n   **Subject:** [GitHub] Sudo email verification code  \n   **Summary:** GitHub sudo authentication code received.\n\n5. **From:** LinkedIn  \n   **Subject:** New skill available: Puzzle solving 🧩  \n   **Summary:** Invitation to solve a puzzle.\n\n6. **From:** Kuberns  \n   **Subject:** Your Fast Deployment Checklist  \n   **Summary:** Launch of Kuberns on Product Hunt with new features.\n\n7. **From:** Medium Daily Digest  \n   **Subject:** Knowledge Leakage Is the New Data Leakage in LLMs. | Erdogan T in Data Science Collective  \n   **Summary:** Article on knowledge leakage in LLMs.\n\n8. **From:** LiveKit Team  \n   **Subject:** Notice of update to LiveKit's list of data subprocessors  \n   **Summary:** Update to LiveKit's subprocessor list.\n\n**Overall Summary:**\nKeneth received multiple notifications and updates from various platforms including Google, OpenAI, GitHub, LinkedIn, Kuberns, Medium, and LiveKit. These include account reviews, security alerts, new features, and educational content.\n\n**Action Items:**\n\n**[High Priority]**\n- Review and adjust Google Account settings for privacy and security.\n- Verify the GitHub sudo authentication code to ensure account security.\n- Address the new sign-in alerts from Google and OpenAI to confirm if they were authorized.\n\n**[Standard Priority]**\n- Check the new features and launch checklist from Kuberns.\n- Read the article on knowledge leakage in LLMs from Medium.\n- Update LiveKit's subprocessor list as per the notification."}
+2026-07-03 14:25:56,612 [INFO] aether.llm.model: Starting llama-server.exe sidecar for ROUTER. Port: 12345
+2026-07-03 14:25:56,620 [INFO] aether.llm.model: Using model: C:\Users\lenovo\dev\ather\JARVIS_MARK_6\JARVIS_MARK_13\aether\models\gguf\qwen2.5-3b-instruct-q4_k_m.gguf
+2026-07-03 14:26:00,164 [INFO] aether.llm.model: llama-server sidecar (router) is ready at http://127.0.0.1:12345
+2026-07-03 14:26:00,676 [INFO] aether.llm.model: Starting llama-server.exe sidecar for PLANNER. Port: 12346
+2026-07-03 14:26:00,676 [INFO] aether.llm.model: Using model: C:\Users\lenovo\dev\ather\JARVIS_MARK_6\JARVIS_MARK_13\aether\models\gguf\qwen2.5-coder-7b-instruct-q4_k_m.gguf
+2026-07-03 14:26:11,295 [INFO] aether.llm.model: llama-server sidecar (planner) is ready at http://127.0.0.1:12346
+2026-07-03 14:31:48,878 [INFO] aether.email.email_manager: Attempting automatic email reconnection...
+2026-07-03 14:31:50,111 [INFO] aether.email.smtp_client: Validating SMTP connection to smtp.gmail.com:465 for christiankeneth1@gmail.com
+2026-07-03 14:32:00,172 [ERROR] aether.email.smtp_client: SMTP Connection failed: timed out
+2026-07-03 14:32:00,172 [WARNING] aether.email.email_manager: Automatic reconnection failed (credentials might be invalid or network offline): Failed to connect or log in to SMTP server smtp.gmail.com:465: timed out
+2026-07-03 14:33:02,731 [INFO] aether.assistant: User Query: list of todays mails
+2026-07-03 14:33:02,734 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Analyzing query...'}
+2026-07-03 14:33:02,738 [INFO] aether.assistant: Normalized Query: list of todays mails
+2026-07-03 14:33:02,738 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Selecting appropriate tool categories...'}
+2026-07-03 14:33:02,821 [INFO] aether.llm.category_selector: Running LLM Router stage on port 12345...
+2026-07-03 14:33:02,826 [INFO] aether.llm.model: llama-server sidecar (router) is already running at http://127.0.0.1:12345/health. Reusing it.
+2026-07-03 14:33:33,445 [INFO] aether.assistant: Router Output: {'intent': 'file_operation', 'complexity': 'single_step', 'categories': ['file.search']}
+2026-07-03 14:33:33,529 [INFO] aether.assistant: Expanded Categories: ['file.search']
+2026-07-03 14:33:33,665 [INFO] aether.assistant: Candidate Tools: ['search_files', 'list_emails', 'list_installed_apps', 'list_directory', 'compress_files', 'list_running_apps', 'file_info', 'read_file_content', 'list_tabs', 'read_email', 'get_clipboard']
+2026-07-03 14:33:33,703 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Formulating tool execution plan...'}
+2026-07-03 14:33:33,777 [INFO] aether.llm.action_planner: Running LLM Action Planner on port 12346 (Attempt 1)...
+2026-07-03 14:33:33,939 [INFO] aether.llm.model: llama-server sidecar (planner) is already running at http://127.0.0.1:12346/health. Reusing it.
+2026-07-03 14:34:13,269 [INFO] aether.assistant: Planner Output: [{'tool': 'list_emails', 'arguments': {'limit': 1, 'unread_only': True}}]
+2026-07-03 14:34:13,290 [INFO] aether.assistant: Validation Result: Valid=True, Errors=[]
+2026-07-03 14:34:13,292 [INFO] aether.api.events: Emitting event: {'type': 'plan', 'steps': ['Retrieve recent emails (limit=1)']}
+2026-07-03 14:34:13,294 [INFO] aether.api.events: Emitting event: {'type': 'step_start', 'step': 'Retrieve recent emails (limit=1)'}
+2026-07-03 14:34:13,298 [INFO] aether.api.events: Emitting event: {'type': 'tool_start', 'tool': 'list_emails'}
+2026-07-03 14:34:13,300 [INFO] aether.executor.executor: Executing tool 'list_emails' with mapped parameters: {'limit': 1, 'unread_only': True}
+2026-07-03 14:34:13,301 [INFO] aether.tools.email_tools: list_emails tool triggered. Limit: 1, Unread only: True
+2026-07-03 14:34:13,313 [INFO] aether.api.events: Emitting event: {'type': 'tool_complete', 'tool': 'list_emails', 'success': False}
+2026-07-03 14:34:13,315 [INFO] aether.api.events: Emitting event: {'type': 'step_complete', 'step': 'Retrieve recent emails (limit=1)', 'success': False}
+2026-07-03 14:34:13,317 [INFO] aether.api.events: Emitting event: {'type': 'error', 'message': 'Failed executing list_emails: Email account is not connected. Please connect it in settings. [EMAIL_NOT_CONNECTED]', 'error_code': 'EMAIL_NOT_CONNECTED'}
+2026-07-03 14:34:17,320 [INFO] aether.email.email_manager: Initiating connection validation for christiankeneth1@gmail.com
+2026-07-03 14:34:17,321 [INFO] aether.email.smtp_client: Validating SMTP connection to smtp.gmail.com:465 for christiankeneth1@gmail.com
+2026-07-03 14:34:20,519 [INFO] aether.email.smtp_client: SMTP validation succeeded.
+2026-07-03 14:34:20,520 [INFO] aether.email.imap_client: Validating IMAP connection to imap.gmail.com:993 for christiankeneth1@gmail.com
+2026-07-03 14:34:22,335 [INFO] aether.email.imap_client: IMAP validation succeeded.
+2026-07-03 14:34:22,337 [INFO] aether.email.credential_store: Saving credentials for email: christiankeneth1@gmail.com
+2026-07-03 14:34:22,446 [INFO] aether.email.email_manager: Successfully connected to email: christiankeneth1@gmail.com
+2026-07-03 14:34:23,460 [INFO] aether.assistant: User Query: list of todays mails
+2026-07-03 14:34:23,462 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Analyzing query...'}
+2026-07-03 14:34:23,464 [INFO] aether.assistant: Normalized Query: list of todays mails
+2026-07-03 14:34:23,465 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Selecting appropriate tool categories...'}
+2026-07-03 14:34:23,469 [INFO] aether.llm.category_selector: Running LLM Router stage on port 12345...
+2026-07-03 14:34:23,475 [INFO] aether.llm.model: llama-server sidecar (router) is already running at http://127.0.0.1:12345/health. Reusing it.
+2026-07-03 14:34:26,114 [INFO] aether.assistant: Router Output: {'intent': 'file_operation', 'complexity': 'single_step', 'categories': ['file.search']}
+2026-07-03 14:34:26,114 [INFO] aether.assistant: Expanded Categories: ['file.search']
+2026-07-03 14:34:26,117 [INFO] aether.assistant: Candidate Tools: ['search_files', 'list_emails', 'list_installed_apps', 'list_directory', 'compress_files', 'list_running_apps', 'file_info', 'read_file_content', 'list_tabs', 'read_email', 'get_clipboard']
+2026-07-03 14:34:26,117 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Formulating tool execution plan...'}
+2026-07-03 14:34:26,120 [INFO] aether.llm.action_planner: Running LLM Action Planner on port 12346 (Attempt 1)...
+2026-07-03 14:34:26,129 [INFO] aether.llm.model: llama-server sidecar (planner) is already running at http://127.0.0.1:12346/health. Reusing it.
+2026-07-03 14:34:30,313 [INFO] aether.assistant: Planner Output: [{'tool': 'list_emails', 'arguments': {'limit': 1, 'unread_only': True}}]
+2026-07-03 14:34:30,315 [INFO] aether.assistant: Validation Result: Valid=True, Errors=[]
+2026-07-03 14:34:30,316 [INFO] aether.api.events: Emitting event: {'type': 'plan', 'steps': ['Retrieve recent emails (limit=1)']}
+2026-07-03 14:34:30,317 [INFO] aether.api.events: Emitting event: {'type': 'step_start', 'step': 'Retrieve recent emails (limit=1)'}
+2026-07-03 14:34:30,318 [INFO] aether.api.events: Emitting event: {'type': 'tool_start', 'tool': 'list_emails'}
+2026-07-03 14:34:30,324 [INFO] aether.executor.executor: Executing tool 'list_emails' with mapped parameters: {'limit': 1, 'unread_only': True}
+2026-07-03 14:34:30,328 [INFO] aether.tools.email_tools: list_emails tool triggered. Limit: 1, Unread only: True
+2026-07-03 14:34:32,758 [INFO] aether.email.imap_client: IMAP search criterion: UNSEEN
+2026-07-03 14:34:34,333 [INFO] aether.api.events: Emitting event: {'type': 'tool_complete', 'tool': 'list_emails', 'success': True}
+2026-07-03 14:34:34,334 [INFO] aether.api.events: Emitting event: {'type': 'step_complete', 'step': 'Retrieve recent emails (limit=1)', 'success': True}
+2026-07-03 14:34:34,335 [INFO] aether.assistant: === AETHER DIAGNOSTICS ===
+2026-07-03 14:34:34,335 [INFO] aether.assistant: User Query                 : list of todays mails
+2026-07-03 14:34:34,336 [INFO] aether.assistant: Normalized Query           : list of todays mails
+2026-07-03 14:34:34,336 [INFO] aether.assistant: Router Selected Categories : ['file.search']
+2026-07-03 14:34:34,337 [INFO] aether.assistant: Retrieved Candidate Tools  : ['search_files', 'list_emails', 'list_installed_apps', 'list_directory', 'compress_files', 'list_running_apps', 'file_info', 'read_file_content', 'list_tabs', 'read_email', 'get_clipboard']
+2026-07-03 14:34:34,337 [INFO] aether.assistant: Router latency             : 2.6470s
+2026-07-03 14:34:34,338 [INFO] aether.assistant: Action planner latency     : 4.1949s
+2026-07-03 14:34:34,338 [INFO] aether.assistant: Validator latency          : 0.0011s
+2026-07-03 14:34:34,338 [INFO] aether.assistant: Execution latency          : 4.0174s
+2026-07-03 14:34:34,338 [INFO] aether.assistant: Planner Prompt Tokens      : 565
+2026-07-03 14:34:34,338 [INFO] aether.assistant: Planner Completion Tokens  : 27
+2026-07-03 14:34:34,339 [INFO] aether.assistant: Generation Time            : 4.1825s
+2026-07-03 14:34:34,339 [INFO] aether.assistant: Parsing Time               : 0.0000s
+2026-07-03 14:34:34,340 [INFO] aether.assistant: Validation Time            : 0.0011s
+2026-07-03 14:34:34,346 [INFO] aether.assistant: JSON Extraction Time       : 0.0001s
+2026-07-03 14:34:34,351 [INFO] aether.assistant: Fallback Triggered (Yes/No): No
+2026-07-03 14:34:34,352 [INFO] aether.assistant: Failure Reason             : None
+2026-07-03 14:34:34,353 [INFO] aether.assistant: ==========================
+2026-07-03 14:34:34,354 [INFO] aether.assistant: Execution Result: ### Inbox Emails (1)
+
+1. **ID**: `3270`
+   - **Sender**: LinkedIn <messages-noreply@linkedin.com>
+   - **Subject**: Richard Branson, Founder, is popular in your network
+   - **Date**: Fri, 3 Jul 2026 07:56:01 +0000 (UTC)
+   - **Status**: Unread
+2026-07-03 14:34:34,363 [INFO] aether.api.events: Emitting event: {'type': 'final_response', 'message': '### Inbox Emails (1)\n\n1. **ID**: `3270`\n   - **Sender**: LinkedIn <messages-noreply@linkedin.com>\n   - **Subject**: Richard Branson, Founder, is popular in your network\n   - **Date**: Fri, 3 Jul 2026 07:56:01 +0000 (UTC)\n   - **Status**: Unread'}
+2026-07-03 14:34:57,212 [INFO] aether.assistant: User Query: summary of todays emials
+2026-07-03 14:34:57,213 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Analyzing query...'}
+2026-07-03 14:34:57,214 [INFO] aether.assistant: Normalized Query: summary of todays emials
+2026-07-03 14:34:57,214 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Selecting appropriate tool categories...'}
+2026-07-03 14:34:57,217 [INFO] aether.llm.category_selector: Running LLM Router stage on port 12345...
+2026-07-03 14:34:57,242 [INFO] aether.llm.model: llama-server sidecar (router) is already running at http://127.0.0.1:12345/health. Reusing it.
+2026-07-03 14:35:01,361 [INFO] aether.assistant: Router Output: {'intent': 'email_summary', 'complexity': 'single_step', 'categories': ['Email'], 'filters': {'date_type': 'today'}}
+2026-07-03 14:35:01,361 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Generating email summary...'}
+2026-07-03 14:35:01,385 [INFO] aether.email.email_summary: Email Summary Started
+2026-07-03 14:35:01,386 [INFO] aether.email.email_summary: Date Filter: today
+2026-07-03 14:35:03,836 [INFO] aether.email.imap_client: IMAP search criterion: ON 03-Jul-2026
+2026-07-03 14:35:06,194 [INFO] aether.email.email_summary: Emails Retrieved: 2
+2026-07-03 14:35:06,195 [INFO] aether.email.email_summary: Emails Summarized: 2
+2026-07-03 14:35:20,229 [INFO] aether.email.email_summary: LLM Prompt Length: 2064
+2026-07-03 14:35:20,257 [INFO] aether.llm.model: llama-server sidecar (planner) is already running at http://127.0.0.1:12346/health. Reusing it.
+2026-07-03 14:36:17,238 [INFO] aether.email.email_summary: Summary Generated Successfully
+2026-07-03 14:36:17,238 [INFO] aether.email.email_summary: Execution Time: 75.8529s
+2026-07-03 14:36:17,239 [INFO] aether.api.events: Emitting event: {'type': 'final_response', 'message': 'Email Summary — Today\n\n**Email 1**\n\n- **Sender:** LinkedIn\n- **Subject:** Richard Branson, Founder, is popular in your network\n- **Summary:** You are more likely to get profile views when you follow 5 people on LinkedIn.\n\n**Email 2**\n\n- **Sender:** Medium Daily Digest\n- **Subject:** I Didn’t Expect Python 3.15 to Change This Much | Aysha R in Pythonic AF\n- **Summary:** A Medium article discusses significant changes in Python 3.15 and highlights a guide on developing a personal agentic system.\n\n**Overall Summary:**\nKeneth Christian received notifications about following Richard Branson on LinkedIn and a daily digest from Medium featuring an article on Python 3.15 and a guide on personal agentic systems.\n\n**Action Items:**\n- [Standard Priority] Follow 5 people on LinkedIn to increase profile views.\n- [Standard Priority] Read the article on Python 3.15 and the guide on personal agentic systems from Medium.'}
+2026-07-03 14:36:45,318 [INFO] aether.assistant: User Query: list of today's email
+2026-07-03 14:36:45,319 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Analyzing query...'}
+2026-07-03 14:36:45,320 [INFO] aether.assistant: Normalized Query: list of today's email
+2026-07-03 14:36:45,321 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Selecting appropriate tool categories...'}
+2026-07-03 14:36:45,323 [INFO] aether.llm.category_selector: Running LLM Router stage on port 12345...
+2026-07-03 14:36:45,341 [INFO] aether.llm.model: llama-server sidecar (router) is already running at http://127.0.0.1:12345/health. Reusing it.
+2026-07-03 14:36:48,193 [INFO] aether.assistant: Router Output: {'intent': 'file_operation', 'complexity': 'multi_step', 'categories': ['file.search']}
+2026-07-03 14:36:48,193 [INFO] aether.assistant: Expanded Categories: ['file.search']
+2026-07-03 14:36:48,195 [INFO] aether.assistant: Candidate Tools: ['search_files', 'list_emails', 'list_installed_apps', 'list_directory', 'send_email', 'compress_files', 'read_email', 'list_running_apps', 'file_info', 'read_file_content', 'list_tabs', 'get_clipboard']
+2026-07-03 14:36:48,196 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Formulating tool execution plan...'}
+2026-07-03 14:36:48,201 [INFO] aether.llm.action_planner: Running LLM Action Planner on port 12346 (Attempt 1)...
+2026-07-03 14:36:48,221 [INFO] aether.llm.model: llama-server sidecar (planner) is already running at http://127.0.0.1:12346/health. Reusing it.
+2026-07-03 14:37:08,692 [INFO] aether.assistant: Planner Output: [{'tool': 'list_emails', 'arguments': {'limit': 10, 'unread_only': True}}]
+2026-07-03 14:37:08,695 [INFO] aether.assistant: Validation Result: Valid=True, Errors=[]
+2026-07-03 14:37:08,696 [INFO] aether.api.events: Emitting event: {'type': 'plan', 'steps': ['Retrieve recent emails (limit=10)']}
+2026-07-03 14:37:08,697 [INFO] aether.api.events: Emitting event: {'type': 'step_start', 'step': 'Retrieve recent emails (limit=10)'}
+2026-07-03 14:37:08,698 [INFO] aether.api.events: Emitting event: {'type': 'tool_start', 'tool': 'list_emails'}
+2026-07-03 14:37:08,699 [INFO] aether.executor.executor: Executing tool 'list_emails' with mapped parameters: {'limit': 10, 'unread_only': True}
+2026-07-03 14:37:08,700 [INFO] aether.tools.email_tools: list_emails tool triggered. Limit: 10, Unread only: True
+2026-07-03 14:37:11,032 [INFO] aether.email.imap_client: IMAP search criterion: UNSEEN
+2026-07-03 14:37:20,337 [INFO] aether.api.events: Emitting event: {'type': 'tool_complete', 'tool': 'list_emails', 'success': True}
+2026-07-03 14:37:20,338 [INFO] aether.api.events: Emitting event: {'type': 'step_complete', 'step': 'Retrieve recent emails (limit=10)', 'success': True}
+2026-07-03 14:37:20,339 [INFO] aether.assistant: === AETHER DIAGNOSTICS ===
+2026-07-03 14:37:20,340 [INFO] aether.assistant: User Query                 : list of today's email
+2026-07-03 14:37:20,341 [INFO] aether.assistant: Normalized Query           : list of today's email
+2026-07-03 14:37:20,341 [INFO] aether.assistant: Router Selected Categories : ['file.search']
+2026-07-03 14:37:20,342 [INFO] aether.assistant: Retrieved Candidate Tools  : ['search_files', 'list_emails', 'list_installed_apps', 'list_directory', 'send_email', 'compress_files', 'read_email', 'list_running_apps', 'file_info', 'read_file_content', 'list_tabs', 'get_clipboard']
+2026-07-03 14:37:20,342 [INFO] aether.assistant: Router latency             : 2.8710s
+2026-07-03 14:37:20,343 [INFO] aether.assistant: Action planner latency     : 20.4955s
+2026-07-03 14:37:20,345 [INFO] aether.assistant: Validator latency          : 0.0017s
+2026-07-03 14:37:20,347 [INFO] aether.assistant: Execution latency          : 11.6426s
+2026-07-03 14:37:20,347 [INFO] aether.assistant: Planner Prompt Tokens      : 619
+2026-07-03 14:37:20,348 [INFO] aether.assistant: Planner Completion Tokens  : 28
+2026-07-03 14:37:20,348 [INFO] aether.assistant: Generation Time            : 20.4681s
+2026-07-03 14:37:20,349 [INFO] aether.assistant: Parsing Time               : 0.0000s
+2026-07-03 14:37:20,349 [INFO] aether.assistant: Validation Time            : 0.0017s
+2026-07-03 14:37:20,350 [INFO] aether.assistant: JSON Extraction Time       : 0.0000s
+2026-07-03 14:37:20,351 [INFO] aether.assistant: Fallback Triggered (Yes/No): No
+2026-07-03 14:37:20,351 [INFO] aether.assistant: Failure Reason             : None
+2026-07-03 14:37:20,352 [INFO] aether.assistant: ==========================
+2026-07-03 14:37:20,352 [INFO] aether.assistant: Execution Result: ### Inbox Emails (10)
+
+1. **ID**: `3249`
+   - **Sender**: support@kuberns.cloud
+   - **Subject**: Your Monthly Bill - REC-2026-02-1ffa7b28
+   - **Date**: Wed, 1 Jul 2026 00:17:49 +0000
+   - **Status**: Unread (Has Attachments)
+
+2. **ID**: `3248`
+   - **Sender**: Kaggle <no-reply@kaggle.com>
+   - **Subject**: [Learn Guide] 5-Day AI Agents: Intensive Vibe Coding Course With
+ Google
+   - **Date**: Tue, 30 Jun 2026 13:11:23 -0700
+   - **Status**: Unread
+
+3. **ID**: `3247`
+   - **Sender**: "Instagram" <security@mail.instagram.com>
+   - **Subject**: New login to Instagram from Chrome Mobile WebView
+   - **Date**: Tue, 30 Jun 2026 08:11:29 -0700
+   - **Status**: Unread
+
+4. **ID**: `3246`
+   - **Sender**: LinkedIn <messages-noreply@linkedin.com>
+   - **Subject**: LinkedIn is better on the app
+   - **Date**: Tue, 30 Jun 2026 14:48:20 +0000 (UTC)
+   - **Status**: Unread
+
+5. **ID**: `3245`
+   - **Sender**: LinkedIn <notifications-noreply@linkedin.com>
+   - **Subject**: You have 3 new messages
+   - **Date**: Tue, 30 Jun 2026 13:44:19 +0000 (UTC)
+   - **Status**: Unread
+
+6. **ID**: `3244`
+   - **Sender**: LinkedIn <messages-noreply@linkedin.com>
+   - **Subject**: New skill available: Puzzle solving 🧩
+   - **Date**: Tue, 30 Jun 2026 09:05:23 +0000 (UTC)
+   - **Status**: Unread
+
+7. **ID**: `3238`
+   - **Sender**: "Deepa | Influencer on Instagram" <posts-recap@mail.instagram.com>
+   - **Subject**: smartfinds_india_official, queen_desires_ shared something new
+   - **Date**: Sun, 28 Jun 2026 00:40:41 -0700
+   - **Status**: Unread
+
+8. **ID**: `3237`
+   - **Sender**: Medium Daily Digest <noreply@medium.com>
+   - **Subject**: From Data Warehouse to Agentic Data Architecture: A Reference Model for Governed Enterprise… | Srinivas Bommena
+   - **Date**: Sun, 28 Jun 2026 01:30:00 +0000 (UTC)
+   - **Status**: Unread
+
+9. **ID**: `3236`
+   - **Sender**: "talibunwrap on Instagram" <notification@priority.instagram.com>
+   - **Subject**: smartfinds_india_official, catch up on moments you've missed
+   - **Date**: Sat, 27 Jun 2026 00:34:10 -0700
+   - **Status**: Unread
+
+10. **ID**: `3235`
+   - **Sender**: Naukri Alerts <naukrialerts@naukri.com>
+   - **Subject**: Keneth, Jobs with no degree requirement and salary upto Rs 25,000 per
+ month. Apply now!
+   - **Date**: Sat, 27 Jun 2026 11:46:39 +0530 (IST)
+   - **Status**: Unread (Has Attachments)
+2026-07-03 14:37:20,354 [INFO] aether.api.events: Emitting event: {'type': 'final_response', 'message': '### Inbox Emails (10)\n\n1. **ID**: `3249`\n   - **Sender**: support@kuberns.cloud\n   - **Subject**: Your Monthly Bill - REC-2026-02-1ffa7b28\n   - **Date**: Wed, 1 Jul 2026 00:17:49 +0000\n   - **Status**: Unread (Has Attachments)\n\n2. **ID**: `3248`\n   - **Sender**: Kaggle <no-reply@kaggle.com>\n   - **Subject**: [Learn Guide] 5-Day AI Agents: Intensive Vibe Coding Course With\r\n Google\n   - **Date**: Tue, 30 Jun 2026 13:11:23 -0700\n   - **Status**: Unread\n\n3. **ID**: `3247`\n   - **Sender**: "Instagram" <security@mail.instagram.com>\n   - **Subject**: New login to Instagram from Chrome Mobile WebView\n   - **Date**: Tue, 30 Jun 2026 08:11:29 -0700\n   - **Status**: Unread\n\n4. **ID**: `3246`\n   - **Sender**: LinkedIn <messages-noreply@linkedin.com>\n   - **Subject**: LinkedIn is better on the app\n   - **Date**: Tue, 30 Jun 2026 14:48:20 +0000 (UTC)\n   - **Status**: Unread\n\n5. **ID**: `3245`\n   - **Sender**: LinkedIn <notifications-noreply@linkedin.com>\n   - **Subject**: You have 3 new messages\n   - **Date**: Tue, 30 Jun 2026 13:44:19 +0000 (UTC)\n   - **Status**: Unread\n\n6. **ID**: `3244`\n   - **Sender**: LinkedIn <messages-noreply@linkedin.com>\n   - **Subject**: New skill available: Puzzle solving 🧩\n   - **Date**: Tue, 30 Jun 2026 09:05:23 +0000 (UTC)\n   - **Status**: Unread\n\n7. **ID**: `3238`\n   - **Sender**: "Deepa | Influencer on Instagram" <posts-recap@mail.instagram.com>\n   - **Subject**: smartfinds_india_official, queen_desires_ shared something new\n   - **Date**: Sun, 28 Jun 2026 00:40:41 -0700\n   - **Status**: Unread\n\n8. **ID**: `3237`\n   - **Sender**: Medium Daily Digest <noreply@medium.com>\n   - **Subject**: From Data Warehouse to Agentic Data Architecture: A Reference Model for Governed Enterprise… | Srinivas Bommena\n   - **Date**: Sun, 28 Jun 2026 01:30:00 +0000 (UTC)\n   - **Status**: Unread\n\n9. **ID**: `3236`\n   - **Sender**: "talibunwrap on Instagram" <notification@priority.instagram.com>\n   - **Subject**: smartfinds_india_official, catch up on moments you\'ve missed\n   - **Date**: Sat, 27 Jun 2026 00:34:10 -0700\n   - **Status**: Unread\n\n10. **ID**: `3235`\n   - **Sender**: Naukri Alerts <naukrialerts@naukri.com>\n   - **Subject**: Keneth, Jobs with no degree requirement and salary upto Rs 25,000 per\r\n month. Apply now!\n   - **Date**: Sat, 27 Jun 2026 11:46:39 +0530 (IST)\n   - **Status**: Unread (Has Attachments)'}
+2026-07-03 14:39:20,059 [INFO] aether.assistant: User Query: summary of yesterdays email
+2026-07-03 14:39:20,060 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Analyzing query...'}
+2026-07-03 14:39:20,062 [INFO] aether.assistant: Normalized Query: summary of yesterdays email
+2026-07-03 14:39:20,063 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Selecting appropriate tool categories...'}
+2026-07-03 14:39:20,065 [INFO] aether.llm.category_selector: Running LLM Router stage on port 12345...
+2026-07-03 14:39:20,069 [INFO] aether.llm.model: llama-server sidecar (router) is already running at http://127.0.0.1:12345/health. Reusing it.
+2026-07-03 14:39:24,309 [INFO] aether.assistant: Router Output: {'intent': 'email_summary', 'complexity': 'single_step', 'categories': ['Email'], 'filters': {'date_type': 'yesterday'}}
+2026-07-03 14:39:24,310 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Generating email summary...'}
+2026-07-03 14:39:24,312 [INFO] aether.email.email_summary: Email Summary Started
+2026-07-03 14:39:24,312 [INFO] aether.email.email_summary: Date Filter: yesterday
+2026-07-03 14:39:26,201 [INFO] aether.email.imap_client: IMAP search criterion: ON 02-Jul-2026
+2026-07-03 14:39:32,655 [INFO] aether.email.email_summary: Emails Retrieved: 8
+2026-07-03 14:39:32,656 [INFO] aether.email.email_summary: Emails Summarized: 8
+2026-07-03 14:40:06,845 [ERROR] aether.email.email_manager: Error reading email 3264: Failed to connect to IMAP server imap.gmail.com:993: The read operation timed out
+2026-07-03 14:40:06,846 [WARNING] aether.email.email_summary: Error reading email details for UID 3264: Failed to read email details: Failed to connect to IMAP server imap.gmail.com:993: The read operation timed out
+2026-07-03 14:40:22,249 [INFO] aether.email.email_summary: LLM Prompt Length: 2966
+2026-07-03 14:40:22,255 [INFO] aether.llm.model: llama-server sidecar (planner) is already running at http://127.0.0.1:12346/health. Reusing it.
+2026-07-03 14:42:19,082 [INFO] aether.email.email_summary: Summary Generated Successfully
+2026-07-03 14:42:19,082 [INFO] aether.email.email_summary: Execution Time: 174.7702s
+2026-07-03 14:42:19,083 [INFO] aether.api.events: Emitting event: {'type': 'final_response', 'message': "Email Summary — Yesterday\n\n### Email Summaries\n\n1. **From:** Google  \n   **Subject:** Keneth, review your Google Account settings  \n   **Summary:** Google recommends reviewing and adjusting privacy and security settings.\n\n2. **From:** OpenAI  \n   **Subject:** New sign-in to your OpenAI account  \n   **Summary:** A new sign-in was detected to your OpenAI account from the Codex app.\n\n3. **From:** Google  \n   **Subject:** Security alert  \n   **Summary:** A new sign-in was detected to your Google Account on a Mac device.\n\n4. **From:** LinkedIn  \n   **Subject:** New skill available: Puzzle solving 🧩  \n   **Summary:** A new puzzle-solving challenge is available on LinkedIn.\n\n5. **From:** Kuberns  \n   **Subject:** Your Fast Deployment Checklist  \n   **Summary:** Kuberns is launching on Product Hunt on July 7 with new features.\n\n6. **From:** Medium Daily Digest  \n   **Subject:** Knowledge Leakage Is the New Data Leakage in LLMs. | Erdogan T in Data Science Collective  \n   **Summary:** A new article on knowledge leakage in LLMs is available on Medium.\n\n7. **From:** LiveKit Team  \n   **Subject:** Notice of update to LiveKit's list of data subprocessors  \n   **Summary:** New inference providers will be added to the LiveKit subprocessor list.\n\n### Overall Summary\nKeneth has received several notifications and updates from various services, including Google, OpenAI, LinkedIn, Kuberns, Medium, and LiveKit. He should review his Google account settings, address the security alert, and check out the new puzzle-solving challenge and article on Medium.\n\n### Action Items\n\n**High Priority:**\n- [High Priority] Review and adjust your Google Account settings.\n- [High Priority] Address the security alert for your Google Account.\n\n**Standard Priority:**\n- [Standard Priority] Check out the new puzzle-solving challenge on LinkedIn.\n- [Standard Priority] Read the article on knowledge leakage in LLMs on Medium.\n- [Standard Priority] Stay informed about the new inference providers in LiveKit's subprocessor list.\n- [Standard Priority] Check Kuberns' launch on Product Hunt on July 7."}
+2026-07-03 14:51:13,673 [INFO] aether.assistant: User Query: open project architecture guide
+2026-07-03 14:51:13,675 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Analyzing query...'}
+2026-07-03 14:51:13,677 [INFO] aether.assistant: Normalized Query: open project architecture guide
+2026-07-03 14:51:13,678 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Selecting appropriate tool categories...'}
+2026-07-03 14:51:13,684 [INFO] aether.llm.category_selector: Running LLM Router stage on port 12345...
+2026-07-03 14:51:13,708 [INFO] aether.llm.model: llama-server sidecar (router) is already running at http://127.0.0.1:12345/health. Reusing it.
+2026-07-03 14:51:18,825 [INFO] aether.assistant: Router Output: {'intent': 'open_application', 'complexity': 'single_step', 'categories': ['system.app.open']}
+2026-07-03 14:51:18,826 [INFO] aether.assistant: Expanded Categories: ['system.app.open']
+2026-07-03 14:51:18,840 [INFO] aether.assistant: Candidate Tools: ['open_app', 'open_file', 'open_url', 'open_new_tab', 'list_tabs', 'read_email', 'open_notepad_and_write', 'read_word', 'read_excel']
+2026-07-03 14:51:18,840 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Formulating tool execution plan...'}
+2026-07-03 14:51:18,876 [INFO] aether.llm.action_planner: Running LLM Action Planner on port 12346 (Attempt 1)...
+2026-07-03 14:51:18,890 [INFO] aether.llm.model: llama-server sidecar (planner) is already running at http://127.0.0.1:12346/health. Reusing it.
+2026-07-03 14:51:51,824 [INFO] aether.assistant: Planner Output: [{'tool': 'open_file', 'arguments': {'path': 'project_architecture_guide.pdf'}}]
+2026-07-03 14:51:51,858 [INFO] aether.assistant: Validation Result: Valid=True, Errors=[]
+2026-07-03 14:51:51,862 [INFO] aether.api.events: Emitting event: {'type': 'plan', 'steps': ["Open file 'project_architecture_guide.pdf'"]}
+2026-07-03 14:51:51,867 [INFO] aether.api.events: Emitting event: {'type': 'step_start', 'step': "Open file 'project_architecture_guide.pdf'"}
+2026-07-03 14:51:51,869 [INFO] aether.api.events: Emitting event: {'type': 'tool_start', 'tool': 'open_file'}
+2026-07-03 14:51:51,878 [INFO] aether.executor.executor: Executing tool 'open_file' with mapped parameters: {'filename': 'project_architecture_guide.pdf'}
+2026-07-03 14:51:51,892 [INFO] aether.tools.file_search_service: FileSearchService.resolve: query='project_architecture_guide.pdf', is_directory=False
+2026-07-03 14:51:56,371 [INFO] aether.tools.file_search_service: File 'project_architecture_guide.pdf' not found in index. Running full disk search...
+2026-07-03 14:53:02,951 [INFO] aether.api.prompt: prompt_user_sync: Dispatching user prompt '61d4eef6-3410-43bb-aa37-7cdb96ea247f' to frontend via WebSocket.
+2026-07-03 14:53:02,955 [INFO] aether.api.events: Emitting event: {'type': 'user_prompt', 'prompt_id': '61d4eef6-3410-43bb-aa37-7cdb96ea247f', 'title': 'I couldn\'t find an exact match for "project_architecture_guide.pdf". Did you mean:', 'options': ['📄 project_architecture_guide.md (C:\\Users\\lenovo\\Downloads\\project_architecture_guide.md)', '📄 🚀 CLEAN ARCHITECTURE MICROSERVICE.pdf (C:\\Users\\lenovo\\Downloads\\🚀 CLEAN ARCHITECTURE MICROSERVICE.pdf)', '📄 Django_Movie_Project_Explanation.pdf (C:\\Users\\lenovo\\Downloads\\Django_Movie_Project_Explanation.pdf)', '📄 create-framework-project-zf1.pdf (C:\\xampp\\htdocs\\dashboard\\docs\\create-framework-project-zf1.pdf)', '📄 create-framework-project-zf2.pdf (C:\\xampp\\htdocs\\dashboard\\docs\\create-framework-project-zf2.pdf)', 'Cancel']}
+2026-07-03 14:54:37,342 [INFO] aether.api.websocket: WebSocket client disconnected
+2026-07-03 14:54:49,573 [INFO] aether.api.websocket: WebSocket client disconnected
+2026-07-03 14:54:50,021 [INFO] aether.api.websocket: WebSocket client disconnected
+2026-07-03 14:54:50,028 [ERROR] aether.api.websocket: Error sending LLM status: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2026-07-03 14:55:51,871 [INFO] aether.assistant: User Query: open aether architecture guide
+2026-07-03 14:55:51,872 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Analyzing query...'}
+2026-07-03 14:55:51,873 [INFO] aether.assistant: Normalized Query: open aether architecture guide
+2026-07-03 14:55:51,874 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Selecting appropriate tool categories...'}
+2026-07-03 14:55:51,890 [INFO] aether.llm.category_selector: Running LLM Router stage on port 12345...
+2026-07-03 14:55:51,899 [INFO] aether.llm.model: llama-server sidecar (router) is already running at http://127.0.0.1:12345/health. Reusing it.
+2026-07-03 14:56:13,489 [WARNING] aether.api.prompt: User prompt '61d4eef6-3410-43bb-aa37-7cdb96ea247f' timed out after 180s.
+2026-07-03 14:56:13,491 [INFO] aether.api.events: Emitting event: {'type': 'tool_complete', 'tool': 'open_file', 'success': False}
+2026-07-03 14:56:13,492 [ERROR] aether.api.websocket: Error forwarding event to WS: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2026-07-03 14:56:13,493 [INFO] aether.api.events: Emitting event: {'type': 'step_complete', 'step': "Open file 'project_architecture_guide.pdf'", 'success': False}
+2026-07-03 14:56:13,494 [ERROR] aether.api.websocket: Error forwarding event to WS: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2026-07-03 14:56:13,495 [INFO] aether.api.events: Emitting event: {'type': 'error', 'message': 'Failed executing open_file: Operation cancelled.'}
+2026-07-03 14:56:13,496 [ERROR] aether.api.websocket: Error forwarding event to WS: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2026-07-03 14:56:18,224 [INFO] aether.assistant: Router Output: {'intent': 'open_application', 'complexity': 'single_step', 'categories': ['system.app.open']}
+2026-07-03 14:56:18,225 [INFO] aether.assistant: Expanded Categories: ['system.app.open']
+2026-07-03 14:56:18,228 [INFO] aether.assistant: Candidate Tools: ['open_app', 'open_file', 'open_url', 'open_new_tab', 'list_tabs', 'read_email', 'open_notepad_and_write', 'read_word', 'read_excel']
+2026-07-03 14:56:18,229 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Formulating tool execution plan...'}
+2026-07-03 14:56:18,244 [INFO] aether.llm.action_planner: Running LLM Action Planner on port 12346 (Attempt 1)...
+2026-07-03 14:56:18,253 [INFO] aether.llm.model: llama-server sidecar (planner) is already running at http://127.0.0.1:12346/health. Reusing it.
+2026-07-03 14:56:24,165 [INFO] aether.assistant: Planner Output: [{'tool': 'open_file', 'arguments': {'path': 'aether_architecture_guide.pdf'}}]
+2026-07-03 14:56:24,167 [INFO] aether.assistant: Validation Result: Valid=True, Errors=[]
+2026-07-03 14:56:24,167 [INFO] aether.api.events: Emitting event: {'type': 'plan', 'steps': ["Open file 'aether_architecture_guide.pdf'"]}
+2026-07-03 14:56:24,170 [INFO] aether.api.events: Emitting event: {'type': 'step_start', 'step': "Open file 'aether_architecture_guide.pdf'"}
+2026-07-03 14:56:24,175 [INFO] aether.api.events: Emitting event: {'type': 'tool_start', 'tool': 'open_file'}
+2026-07-03 14:56:24,179 [INFO] aether.executor.executor: Executing tool 'open_file' with mapped parameters: {'filename': 'aether_architecture_guide.pdf'}
+2026-07-03 14:56:24,180 [INFO] aether.tools.file_search_service: FileSearchService.resolve: query='aether_architecture_guide.pdf', is_directory=False
+2026-07-03 14:56:24,574 [INFO] aether.tools.file_search_service: File 'aether_architecture_guide.pdf' not found in index. Running full disk search...
+2026-07-03 14:56:52,026 [INFO] aether.api.prompt: prompt_user_sync: Dispatching user prompt '579f71ef-04eb-46cc-a930-e5e05b55d87a' to frontend via WebSocket.
+2026-07-03 14:56:52,028 [INFO] aether.api.events: Emitting event: {'type': 'user_prompt', 'prompt_id': '579f71ef-04eb-46cc-a930-e5e05b55d87a', 'title': 'I couldn\'t find an exact match for "aether_architecture_guide.pdf". Did you mean:', 'options': ['📄 🚀 CLEAN ARCHITECTURE MICROSERVICE.pdf (C:\\Users\\lenovo\\Downloads\\🚀 CLEAN ARCHITECTURE MICROSERVICE.pdf)', '📄 Aether Offline AI Desktop Assistant.pdf (C:\\Users\\lenovo\\Downloads\\Aether Offline AI Desktop Assistant.pdf)', '📄 Aether File & Folder Indexing Strategy.pdf (C:\\Users\\lenovo\\Downloads\\Aether File & Folder Indexing Strategy.pdf)', '📄 Aether Offline AI Desktop Assistant (1).pdf (C:\\Users\\lenovo\\Downloads\\Aether Offline AI Desktop Assistant (1).pdf)', '📄 archive_read_header.3.pdf (C:\\Users\\lenovo\\anaconda3\\Library\\share\\man\\pdf\\archive_read_header.3.pdf)', 'Cancel']}
+2026-07-03 14:59:52,040 [WARNING] aether.api.prompt: User prompt '579f71ef-04eb-46cc-a930-e5e05b55d87a' timed out after 180s.
+2026-07-03 14:59:52,042 [INFO] aether.api.events: Emitting event: {'type': 'tool_complete', 'tool': 'open_file', 'success': False}
+2026-07-03 14:59:52,044 [INFO] aether.api.events: Emitting event: {'type': 'step_complete', 'step': "Open file 'aether_architecture_guide.pdf'", 'success': False}
+2026-07-03 14:59:52,045 [INFO] aether.api.events: Emitting event: {'type': 'error', 'message': 'Failed executing open_file: Operation cancelled.'}
+2026-07-03 15:00:50,337 [INFO] aether.assistant: User Query: open ai unit 4
+2026-07-03 15:00:50,338 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Analyzing query...'}
+2026-07-03 15:00:50,341 [INFO] aether.assistant: Normalized Query: open ai unit 4
+2026-07-03 15:00:50,346 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Selecting appropriate tool categories...'}
+2026-07-03 15:00:50,356 [INFO] aether.llm.category_selector: Running LLM Router stage on port 12345...
+2026-07-03 15:00:50,375 [INFO] aether.llm.model: llama-server sidecar (router) is already running at http://127.0.0.1:12345/health. Reusing it.
+2026-07-03 15:00:53,792 [INFO] aether.assistant: Router Output: {'intent': 'open_application', 'complexity': 'single_step', 'categories': ['system.app.open']}
+2026-07-03 15:00:53,796 [INFO] aether.assistant: Expanded Categories: ['system.app.open']
+2026-07-03 15:00:53,802 [INFO] aether.assistant: Candidate Tools: ['open_app', 'open_file', 'open_url', 'open_new_tab', 'list_tabs', 'read_email', 'open_notepad_and_write', 'read_word', 'read_excel']
+2026-07-03 15:00:53,810 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Formulating tool execution plan...'}
+2026-07-03 15:00:53,821 [INFO] aether.llm.action_planner: Running LLM Action Planner on port 12346 (Attempt 1)...
+2026-07-03 15:00:53,854 [INFO] aether.llm.model: llama-server sidecar (planner) is already running at http://127.0.0.1:12346/health. Reusing it.
+2026-07-03 15:00:59,201 [INFO] aether.assistant: Planner Output: [{'tool': 'open_app', 'arguments': {'app_name': 'AI Unit 4'}}]
+2026-07-03 15:00:59,202 [INFO] aether.assistant: Validation Result: Valid=True, Errors=[]
+2026-07-03 15:00:59,202 [INFO] aether.api.events: Emitting event: {'type': 'plan', 'steps': ['Open AI Unit 4']}
+2026-07-03 15:00:59,203 [INFO] aether.api.events: Emitting event: {'type': 'step_start', 'step': 'Open AI Unit 4'}
+2026-07-03 15:00:59,203 [INFO] aether.api.events: Emitting event: {'type': 'tool_start', 'tool': 'open_app'}
+2026-07-03 15:00:59,446 [WARNING] aether.executor.executor: Existence Check Warning: App 'AI Unit 4' not found in registry scan.
+2026-07-03 15:00:59,447 [INFO] aether.executor.executor: Executing tool 'open_app' with mapped parameters: {'app_name': 'AI Unit 4'}
+2026-07-03 15:00:59,505 [ERROR] aether.executor.executor: Error during execution of tool 'open_app': Could not open application 'AI Unit 4' or resolved 'AI Unit 4'. Reason: [WinError 2] The system cannot find the file specified: 'AI Unit 4'
+2026-07-03 15:00:59,506 [INFO] aether.api.events: Emitting event: {'type': 'tool_complete', 'tool': 'open_app', 'success': False}
+2026-07-03 15:00:59,507 [INFO] aether.api.events: Emitting event: {'type': 'step_complete', 'step': 'Open AI Unit 4', 'success': False}
+2026-07-03 15:00:59,508 [INFO] aether.api.events: Emitting event: {'type': 'error', 'message': "Failed executing open_app: Execution failed: Could not open application 'AI Unit 4' or resolved 'AI Unit 4'. Reason: [WinError 2] The system cannot find the file specified: 'AI Unit 4'"}
+2026-07-03 15:01:18,683 [INFO] aether.assistant: User Query: open ai unit 4 pdf
+2026-07-03 15:01:18,684 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Analyzing query...'}
+2026-07-03 15:01:18,686 [INFO] aether.assistant: Normalized Query: open ai unit 4 pdf
+2026-07-03 15:01:18,687 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Selecting appropriate tool categories...'}
+2026-07-03 15:01:18,691 [INFO] aether.llm.category_selector: Running LLM Router stage on port 12345...
+2026-07-03 15:01:18,696 [INFO] aether.llm.model: llama-server sidecar (router) is already running at http://127.0.0.1:12345/health. Reusing it.
+2026-07-03 15:01:21,787 [INFO] aether.assistant: Router Output: {'intent': 'file_operation', 'complexity': 'single_step', 'categories': ['file.open']}
+2026-07-03 15:01:21,787 [INFO] aether.assistant: Expanded Categories: ['file.open']
+2026-07-03 15:01:21,789 [INFO] aether.assistant: Candidate Tools: ['open_file', 'open_app', 'search_files', 'open_url', 'open_new_tab', 'list_tabs', 'read_email', 'open_notepad_and_write', 'read_word', 'read_excel']
+2026-07-03 15:01:21,789 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Formulating tool execution plan...'}
+2026-07-03 15:01:21,793 [INFO] aether.llm.action_planner: Running LLM Action Planner on port 12346 (Attempt 1)...
+2026-07-03 15:01:21,796 [INFO] aether.llm.model: llama-server sidecar (planner) is already running at http://127.0.0.1:12346/health. Reusing it.
+2026-07-03 15:01:52,970 [INFO] aether.assistant: Planner Output: [{'tool': 'open_file', 'arguments': {'path': 'ai unit 4.pdf'}}]
+2026-07-03 15:01:52,971 [INFO] aether.assistant: Validation Result: Valid=True, Errors=[]
+2026-07-03 15:01:52,971 [INFO] aether.api.events: Emitting event: {'type': 'plan', 'steps': ["Open file 'ai unit 4.pdf'"]}
+2026-07-03 15:01:52,972 [INFO] aether.api.events: Emitting event: {'type': 'step_start', 'step': "Open file 'ai unit 4.pdf'"}
+2026-07-03 15:01:52,973 [INFO] aether.api.events: Emitting event: {'type': 'tool_start', 'tool': 'open_file'}
+2026-07-03 15:01:52,974 [INFO] aether.executor.executor: Executing tool 'open_file' with mapped parameters: {'filename': 'ai unit 4.pdf'}
+2026-07-03 15:01:52,975 [INFO] aether.tools.file_search_service: FileSearchService.resolve: query='ai unit 4.pdf', is_directory=False
+2026-07-03 15:01:53,151 [INFO] aether.tools.file_search_service: File 'ai unit 4.pdf' not found in index. Running full disk search...
+2026-07-03 15:02:23,861 [INFO] aether.api.prompt: prompt_user_sync: Dispatching user prompt 'f9a781a3-8364-4a64-b29f-561bf8ec4bcb' to frontend via WebSocket.
+2026-07-03 15:02:23,862 [INFO] aether.api.events: Emitting event: {'type': 'user_prompt', 'prompt_id': 'f9a781a3-8364-4a64-b29f-561bf8ec4bcb', 'title': 'I couldn\'t find an exact match for "ai unit 4.pdf". Did you mean:', 'options': ['📄 AI_Unit 4.pdf (C:\\Users\\lenovo\\Downloads\\AI_Unit 4.pdf)', '📄 AI_Unit_2.pdf (C:\\Users\\lenovo\\Downloads\\AI_Unit_2.pdf)', '📄 AI_Unit_1 (1).pdf (C:\\Users\\lenovo\\Downloads\\AI_Unit_1 (1).pdf)', '📄 AI_Unit_5 (1).pdf (C:\\Users\\lenovo\\Downloads\\AI_Unit_5 (1).pdf)', '📄 AI_Unit_3_Heuristic Search Technique.pdf (C:\\Users\\lenovo\\Downloads\\AI_Unit_3_Heuristic Search Technique.pdf)', 'Cancel']}
+2026-07-03 15:02:44,083 [INFO] aether.api.websocket: Received WS prompt_response: prompt_id=f9a781a3-8364-4a64-b29f-561bf8ec4bcb, selection=1
+2026-07-03 15:02:44,785 [INFO] aether.api.events: Emitting event: {'type': 'tool_complete', 'tool': 'open_file', 'success': True}
+2026-07-03 15:02:44,790 [INFO] aether.api.events: Emitting event: {'type': 'step_complete', 'step': "Open file 'ai unit 4.pdf'", 'success': True}
+2026-07-03 15:02:44,791 [INFO] aether.assistant: === AETHER DIAGNOSTICS ===
+2026-07-03 15:02:44,795 [INFO] aether.assistant: User Query                 : open ai unit 4 pdf
+2026-07-03 15:02:44,795 [INFO] aether.assistant: Normalized Query           : open ai unit 4 pdf
+2026-07-03 15:02:44,797 [INFO] aether.assistant: Router Selected Categories : ['file.open']
+2026-07-03 15:02:44,797 [INFO] aether.assistant: Retrieved Candidate Tools  : ['open_file', 'open_app', 'search_files', 'open_url', 'open_new_tab', 'list_tabs', 'read_email', 'open_notepad_and_write', 'read_word', 'read_excel']
+2026-07-03 15:02:44,798 [INFO] aether.assistant: Router latency             : 3.0977s
+2026-07-03 15:02:44,798 [INFO] aether.assistant: Action planner latency     : 31.1796s
+2026-07-03 15:02:44,798 [INFO] aether.assistant: Validator latency          : 0.0006s
+2026-07-03 15:02:44,800 [INFO] aether.assistant: Execution latency          : 51.8190s
+2026-07-03 15:02:44,802 [INFO] aether.assistant: Planner Prompt Tokens      : 580
+2026-07-03 15:02:44,802 [INFO] aether.assistant: Planner Completion Tokens  : 25
+2026-07-03 15:02:44,803 [INFO] aether.assistant: Generation Time            : 31.1691s
+2026-07-03 15:02:44,804 [INFO] aether.assistant: Parsing Time               : 0.0000s
+2026-07-03 15:02:44,811 [INFO] aether.assistant: Validation Time            : 0.0006s
+2026-07-03 15:02:44,813 [INFO] aether.assistant: JSON Extraction Time       : 0.0000s
+2026-07-03 15:02:44,814 [INFO] aether.assistant: Fallback Triggered (Yes/No): No
+2026-07-03 15:02:44,815 [INFO] aether.assistant: Failure Reason             : None
+2026-07-03 15:02:44,815 [INFO] aether.assistant: ==========================
+2026-07-03 15:02:44,816 [INFO] aether.assistant: Execution Result: Successfully opened file 'AI_Unit 4.pdf' in its default viewer.
+2026-07-03 15:02:44,817 [INFO] aether.api.events: Emitting event: {'type': 'final_response', 'message': "Successfully opened file 'AI_Unit 4.pdf' in its default viewer."}
+2026-07-03 15:06:48,159 [INFO] aether.api.websocket: WebSocket client disconnected
+2026-07-03 15:06:48,283 [INFO] aether.llm.model: Stopping sidecar server (router)...
+2026-07-03 15:06:48,787 [INFO] aether.llm.model: Server (router) stopped gracefully.
+2026-07-03 15:06:48,800 [INFO] aether.llm.model: Stopping sidecar server (planner)...
+2026-07-03 15:06:49,862 [INFO] aether.llm.model: Server (planner) stopped gracefully.
+2026-07-03 15:07:04,249 [INFO] aether.llm.model: Starting llama-server.exe sidecar for ROUTER. Port: 12345
+2026-07-03 15:07:04,250 [INFO] aether.llm.model: Using model: C:\Users\lenovo\dev\ather\JARVIS_MARK_6\JARVIS_MARK_13\aether\models\gguf\qwen2.5-3b-instruct-q4_k_m.gguf
+2026-07-03 15:07:09,818 [INFO] aether.llm.model: llama-server sidecar (router) is ready at http://127.0.0.1:12345
+2026-07-03 15:07:10,322 [INFO] aether.llm.model: Starting llama-server.exe sidecar for PLANNER. Port: 12346
+2026-07-03 15:07:10,323 [INFO] aether.llm.model: Using model: C:\Users\lenovo\dev\ather\JARVIS_MARK_6\JARVIS_MARK_13\aether\models\gguf\qwen2.5-coder-7b-instruct-q4_k_m.gguf
+2026-07-03 15:07:24,940 [INFO] aether.llm.model: llama-server sidecar (planner) is ready at http://127.0.0.1:12346
+2026-07-03 15:13:44,382 [INFO] aether.email.email_manager: Attempting automatic email reconnection...
+2026-07-03 15:13:44,929 [INFO] aether.email.smtp_client: Validating SMTP connection to smtp.gmail.com:465 for christiankeneth1@gmail.com
+2026-07-03 15:13:47,121 [INFO] aether.email.smtp_client: SMTP validation succeeded.
+2026-07-03 15:13:47,122 [INFO] aether.email.imap_client: Validating IMAP connection to imap.gmail.com:993 for christiankeneth1@gmail.com
+2026-07-03 15:13:49,066 [INFO] aether.email.imap_client: IMAP validation succeeded.
+2026-07-03 15:13:49,068 [INFO] aether.email.email_manager: Automatically reconnected to email account: christiankeneth1@gmail.com
+2026-07-03 15:13:58,190 [INFO] aether.api.websocket: WebSocket client disconnected
+2026-07-03 15:13:58,923 [INFO] aether.api.websocket: WebSocket client disconnected
+2026-07-03 15:14:19,176 [INFO] aether.assistant: User Query: loist of todays mail
+2026-07-03 15:14:19,177 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Analyzing query...'}
+2026-07-03 15:14:19,181 [INFO] aether.assistant: Normalized Query: loist of todays mail
+2026-07-03 15:14:19,182 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Selecting appropriate tool categories...'}
+2026-07-03 15:14:19,186 [INFO] aether.llm.category_selector: Running LLM Router stage on port 12345...
+2026-07-03 15:14:19,204 [INFO] aether.llm.model: llama-server sidecar (router) is already running at http://127.0.0.1:12345/health. Reusing it.
+2026-07-03 15:15:06,561 [INFO] aether.assistant: Router Output: {'intent': 'email_list', 'complexity': 'single_step', 'categories': ['email.list']}
+2026-07-03 15:15:06,562 [INFO] aether.assistant: Expanded Categories: ['email.list']
+2026-07-03 15:15:06,568 [INFO] aether.assistant: Candidate Tools: ['list_emails', 'send_email', 'read_email', 'file_info', 'read_file_content', 'compress_files', 'get_clipboard']
+2026-07-03 15:15:06,569 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Formulating tool execution plan...'}
+2026-07-03 15:15:06,588 [INFO] aether.llm.action_planner: Running LLM Action Planner on port 12346 (Attempt 1)...
+2026-07-03 15:15:06,598 [INFO] aether.llm.model: llama-server sidecar (planner) is already running at http://127.0.0.1:12346/health. Reusing it.
+2026-07-03 15:15:52,760 [INFO] aether.assistant: Planner Output: [{'tool': 'list_emails', 'arguments': {'limit': 10, 'unread_only': True, 'date': 'today'}}]
+2026-07-03 15:15:52,771 [INFO] aether.assistant: Validation Result: Valid=True, Errors=[]
+2026-07-03 15:15:52,772 [INFO] aether.api.events: Emitting event: {'type': 'plan', 'steps': ['Retrieve recent emails (limit=10)']}
+2026-07-03 15:15:52,773 [INFO] aether.api.events: Emitting event: {'type': 'step_start', 'step': 'Retrieve recent emails (limit=10)'}
+2026-07-03 15:15:52,773 [INFO] aether.api.events: Emitting event: {'type': 'tool_start', 'tool': 'list_emails'}
+2026-07-03 15:15:52,776 [INFO] aether.executor.executor: Executing tool 'list_emails' with mapped parameters: {'limit': 10, 'unread_only': True, 'date': 'today'}
+2026-07-03 15:15:52,777 [INFO] aether.tools.email_tools: list_emails tool triggered. Limit: 10, Unread only: True, Date Type: None, Date: today
+2026-07-03 15:15:54,804 [INFO] aether.email.imap_client: IMAP search criterion: UNSEEN ON 03-Jul-2026
+2026-07-03 15:15:55,383 [INFO] aether.api.events: Emitting event: {'type': 'tool_complete', 'tool': 'list_emails', 'success': True}
+2026-07-03 15:15:55,384 [INFO] aether.api.events: Emitting event: {'type': 'step_complete', 'step': 'Retrieve recent emails (limit=10)', 'success': True}
+2026-07-03 15:15:55,386 [INFO] aether.assistant: === AETHER DIAGNOSTICS ===
+2026-07-03 15:15:55,386 [INFO] aether.assistant: User Query                 : loist of todays mail
+2026-07-03 15:15:55,386 [INFO] aether.assistant: Normalized Query           : loist of todays mail
+2026-07-03 15:15:55,387 [INFO] aether.assistant: Router Selected Categories : ['email.list']
+2026-07-03 15:15:55,387 [INFO] aether.assistant: Retrieved Candidate Tools  : ['list_emails', 'send_email', 'read_email', 'file_info', 'read_file_content', 'compress_files', 'get_clipboard']
+2026-07-03 15:15:55,387 [INFO] aether.assistant: Router latency             : 47.3785s
+2026-07-03 15:15:55,387 [INFO] aether.assistant: Action planner latency     : 46.1891s
+2026-07-03 15:15:55,387 [INFO] aether.assistant: Validator latency          : 0.0102s
+2026-07-03 15:15:55,388 [INFO] aether.assistant: Execution latency          : 2.6127s
+2026-07-03 15:15:55,388 [INFO] aether.assistant: Planner Prompt Tokens      : 498
+2026-07-03 15:15:55,389 [INFO] aether.assistant: Planner Completion Tokens  : 34
+2026-07-03 15:15:55,389 [INFO] aether.assistant: Generation Time            : 46.1636s
+2026-07-03 15:15:55,389 [INFO] aether.assistant: Parsing Time               : 0.0000s
+2026-07-03 15:15:55,390 [INFO] aether.assistant: Validation Time            : 0.0102s
+2026-07-03 15:15:55,390 [INFO] aether.assistant: JSON Extraction Time       : 0.0000s
+2026-07-03 15:15:55,391 [INFO] aether.assistant: Fallback Triggered (Yes/No): No
+2026-07-03 15:15:55,392 [INFO] aether.assistant: Failure Reason             : None
+2026-07-03 15:15:55,392 [INFO] aether.assistant: ==========================
+2026-07-03 15:15:55,393 [INFO] aether.assistant: Execution Result: No emails found in the inbox.
+2026-07-03 15:15:55,394 [INFO] aether.api.events: Emitting event: {'type': 'final_response', 'message': 'No emails found in the inbox.'}
+2026-07-03 15:16:27,785 [INFO] aether.assistant: User Query: so give me yesterday's email
+2026-07-03 15:16:27,785 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Analyzing query...'}
+2026-07-03 15:16:27,786 [INFO] aether.assistant: Normalized Query: so give me yesterday's email
+2026-07-03 15:16:27,787 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Selecting appropriate tool categories...'}
+2026-07-03 15:16:27,790 [INFO] aether.llm.category_selector: Running LLM Router stage on port 12345...
+2026-07-03 15:16:27,794 [INFO] aether.llm.model: llama-server sidecar (router) is already running at http://127.0.0.1:12345/health. Reusing it.
+2026-07-03 15:16:31,508 [INFO] aether.assistant: Router Output: {'intent': 'email_list', 'complexity': 'single_step', 'categories': ['email.list']}
+2026-07-03 15:16:31,508 [INFO] aether.assistant: Expanded Categories: ['email.list']
+2026-07-03 15:16:31,510 [INFO] aether.assistant: Candidate Tools: ['list_emails', 'send_email', 'read_email', 'open_app', 'open_file']
+2026-07-03 15:16:31,511 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Formulating tool execution plan...'}
+2026-07-03 15:16:31,514 [INFO] aether.llm.action_planner: Running LLM Action Planner on port 12346 (Attempt 1)...
+2026-07-03 15:16:31,517 [INFO] aether.llm.model: llama-server sidecar (planner) is already running at http://127.0.0.1:12346/health. Reusing it.
+2026-07-03 15:16:44,272 [INFO] aether.assistant: Planner Output: [{'tool': 'list_emails', 'arguments': {'limit': 10, 'unread_only': False, 'date': 'yesterday'}}]
+2026-07-03 15:16:44,274 [INFO] aether.assistant: Validation Result: Valid=True, Errors=[]
+2026-07-03 15:16:44,274 [INFO] aether.api.events: Emitting event: {'type': 'plan', 'steps': ['Retrieve recent emails (limit=10)']}
+2026-07-03 15:16:44,275 [INFO] aether.api.events: Emitting event: {'type': 'step_start', 'step': 'Retrieve recent emails (limit=10)'}
+2026-07-03 15:16:44,276 [INFO] aether.api.events: Emitting event: {'type': 'tool_start', 'tool': 'list_emails'}
+2026-07-03 15:16:44,277 [INFO] aether.executor.executor: Executing tool 'list_emails' with mapped parameters: {'limit': 10, 'unread_only': False, 'date': 'yesterday'}
+2026-07-03 15:16:44,278 [INFO] aether.tools.email_tools: list_emails tool triggered. Limit: 10, Unread only: False, Date Type: None, Date: yesterday
+2026-07-03 15:16:46,404 [INFO] aether.email.imap_client: IMAP search criterion: ON 02-Jul-2026
+2026-07-03 15:16:53,119 [INFO] aether.api.events: Emitting event: {'type': 'tool_complete', 'tool': 'list_emails', 'success': True}
+2026-07-03 15:16:53,120 [INFO] aether.api.events: Emitting event: {'type': 'step_complete', 'step': 'Retrieve recent emails (limit=10)', 'success': True}
+2026-07-03 15:16:53,121 [INFO] aether.assistant: === AETHER DIAGNOSTICS ===
+2026-07-03 15:16:53,121 [INFO] aether.assistant: User Query                 : so give me yesterday's email
+2026-07-03 15:16:53,122 [INFO] aether.assistant: Normalized Query           : so give me yesterday's email
+2026-07-03 15:16:53,123 [INFO] aether.assistant: Router Selected Categories : ['email.list']
+2026-07-03 15:16:53,123 [INFO] aether.assistant: Retrieved Candidate Tools  : ['list_emails', 'send_email', 'read_email', 'open_app', 'open_file']
+2026-07-03 15:16:53,124 [INFO] aether.assistant: Router latency             : 3.7201s
+2026-07-03 15:16:53,124 [INFO] aether.assistant: Action planner latency     : 12.7606s
+2026-07-03 15:16:53,125 [INFO] aether.assistant: Validator latency          : 0.0010s
+2026-07-03 15:16:53,126 [INFO] aether.assistant: Execution latency          : 8.8458s
+2026-07-03 15:16:53,126 [INFO] aether.assistant: Planner Prompt Tokens      : 431
+2026-07-03 15:16:53,127 [INFO] aether.assistant: Planner Completion Tokens  : 52
+2026-07-03 15:16:53,127 [INFO] aether.assistant: Generation Time            : 12.7509s
+2026-07-03 15:16:53,128 [INFO] aether.assistant: Parsing Time               : 0.0000s
+2026-07-03 15:16:53,128 [INFO] aether.assistant: Validation Time            : 0.0010s
+2026-07-03 15:16:53,129 [INFO] aether.assistant: JSON Extraction Time       : 0.0001s
+2026-07-03 15:16:53,130 [INFO] aether.assistant: Fallback Triggered (Yes/No): No
+2026-07-03 15:16:53,130 [INFO] aether.assistant: Failure Reason             : None
+2026-07-03 15:16:53,130 [INFO] aether.assistant: ==========================
+2026-07-03 15:16:53,131 [INFO] aether.assistant: Execution Result: ### Inbox Emails (8)
+
+1. **ID**: `3267`
+   - **Sender**: Google <no-reply@google.com>
+   - **Subject**: Keneth, review your Google Account settings
+   - **Date**: Thu, 02 Jul 2026 03:17:22 -0700
+   - **Status**: Read
+
+2. **ID**: `3266`
+   - **Sender**: OpenAI <noreply@tm.openai.com>
+   - **Subject**: New sign-in to your OpenAI account
+   - **Date**: Thu, 02 Jul 2026 10:16:24 +0000 (UTC)
+   - **Status**: Read
+
+3. **ID**: `3265`
+   - **Sender**: Google <no-reply@accounts.google.com>
+   - **Subject**: Security alert
+   - **Date**: Thu, 02 Jul 2026 10:16:19 GMT
+   - **Status**: Read
+
+4. **ID**: `3264`
+   - **Sender**: GitHub <noreply@github.com>
+   - **Subject**: [GitHub] Sudo email verification code
+   - **Date**: Thu, 02 Jul 2026 02:15:19 -0700
+   - **Status**: Read
+
+5. **ID**: `3263`
+   - **Sender**: LinkedIn <messages-noreply@linkedin.com>
+   - **Subject**: New skill available: Puzzle solving 🧩
+   - **Date**: Thu, 2 Jul 2026 09:04:45 +0000 (UTC)
+   - **Status**: Read
+
+6. **ID**: `3262`
+   - **Sender**: Kuberns <support@kuberns.cloud>
+   - **Subject**: Your Fast Deployment Checklist
+   - **Date**: Thu, 2 Jul 2026 04:30:17 +0000
+   - **Status**: Read
+
+7. **ID**: `3261`
+   - **Sender**: Medium Daily Digest <noreply@medium.com>
+   - **Subject**: Knowledge Leakage Is the New Data Leakage in LLMs. | Erdogan T in
+ Data Science Collective
+   - **Date**: Thu, 02 Jul 2026 01:30:00 +0000 (UTC)
+   - **Status**: Read
+
+8. **ID**: `3260`
+   - **Sender**: LiveKit Team <team@hello.livekit.io>
+   - **Subject**: Notice of update to LiveKit's list of data subprocessors
+   - **Date**: Wed, 1 Jul 2026 21:37:25 +0000
+   - **Status**: Read
+2026-07-03 15:16:53,132 [INFO] aether.api.events: Emitting event: {'type': 'final_response', 'message': "### Inbox Emails (8)\n\n1. **ID**: `3267`\n   - **Sender**: Google <no-reply@google.com>\n   - **Subject**: Keneth, review your Google Account settings\n   - **Date**: Thu, 02 Jul 2026 03:17:22 -0700\n   - **Status**: Read\n\n2. **ID**: `3266`\n   - **Sender**: OpenAI <noreply@tm.openai.com>\n   - **Subject**: New sign-in to your OpenAI account\n   - **Date**: Thu, 02 Jul 2026 10:16:24 +0000 (UTC)\n   - **Status**: Read\n\n3. **ID**: `3265`\n   - **Sender**: Google <no-reply@accounts.google.com>\n   - **Subject**: Security alert\n   - **Date**: Thu, 02 Jul 2026 10:16:19 GMT\n   - **Status**: Read\n\n4. **ID**: `3264`\n   - **Sender**: GitHub <noreply@github.com>\n   - **Subject**: [GitHub] Sudo email verification code\n   - **Date**: Thu, 02 Jul 2026 02:15:19 -0700\n   - **Status**: Read\n\n5. **ID**: `3263`\n   - **Sender**: LinkedIn <messages-noreply@linkedin.com>\n   - **Subject**: New skill available: Puzzle solving 🧩\n   - **Date**: Thu, 2 Jul 2026 09:04:45 +0000 (UTC)\n   - **Status**: Read\n\n6. **ID**: `3262`\n   - **Sender**: Kuberns <support@kuberns.cloud>\n   - **Subject**: Your Fast Deployment Checklist\n   - **Date**: Thu, 2 Jul 2026 04:30:17 +0000\n   - **Status**: Read\n\n7. **ID**: `3261`\n   - **Sender**: Medium Daily Digest <noreply@medium.com>\n   - **Subject**: Knowledge Leakage Is the New Data Leakage in LLMs. | Erdogan T in\r\n Data Science Collective\n   - **Date**: Thu, 02 Jul 2026 01:30:00 +0000 (UTC)\n   - **Status**: Read\n\n8. **ID**: `3260`\n   - **Sender**: LiveKit Team <team@hello.livekit.io>\n   - **Subject**: Notice of update to LiveKit's list of data subprocessors\n   - **Date**: Wed, 1 Jul 2026 21:37:25 +0000\n   - **Status**: Read"}
+2026-07-03 15:17:42,808 [INFO] aether.assistant: User Query: give me list of 1st july 2026
+2026-07-03 15:17:42,809 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Analyzing query...'}
+2026-07-03 15:17:42,809 [INFO] aether.assistant: Normalized Query: give me list of 1st july 2026
+2026-07-03 15:17:42,810 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Selecting appropriate tool categories...'}
+2026-07-03 15:17:42,811 [INFO] aether.llm.category_selector: Running LLM Router stage on port 12345...
+2026-07-03 15:17:42,815 [INFO] aether.llm.model: llama-server sidecar (router) is already running at http://127.0.0.1:12345/health. Reusing it.
+2026-07-03 15:17:48,795 [INFO] aether.assistant: Router Output: {'intent': 'email_list', 'complexity': 'single_step', 'categories': ['email.list'], 'filters': {'date_type': 'specific', 'date': '2026-07-01'}}
+2026-07-03 15:17:48,796 [INFO] aether.assistant: Expanded Categories: ['email.list']
+2026-07-03 15:17:48,797 [INFO] aether.assistant: Candidate Tools: ['list_emails', 'list_installed_apps', 'list_directory', 'compress_files', 'list_running_apps', 'file_info', 'read_file_content', 'list_tabs', 'read_email', 'get_clipboard']
+2026-07-03 15:17:48,798 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Formulating tool execution plan...'}
+2026-07-03 15:17:48,800 [INFO] aether.llm.action_planner: Running LLM Action Planner on port 12346 (Attempt 1)...
+2026-07-03 15:17:48,802 [INFO] aether.llm.model: llama-server sidecar (planner) is already running at http://127.0.0.1:12346/health. Reusing it.
+2026-07-03 15:18:16,623 [INFO] aether.assistant: Planner Output: [{'tool': 'list_emails', 'arguments': {'limit': 10, 'unread_only': False, 'date': '2026-07-01'}}]
+2026-07-03 15:18:16,624 [INFO] aether.assistant: Validation Result: Valid=True, Errors=[]
+2026-07-03 15:18:16,625 [INFO] aether.api.events: Emitting event: {'type': 'plan', 'steps': ['Retrieve recent emails (limit=10)']}
+2026-07-03 15:18:16,626 [INFO] aether.api.events: Emitting event: {'type': 'step_start', 'step': 'Retrieve recent emails (limit=10)'}
+2026-07-03 15:18:16,626 [INFO] aether.api.events: Emitting event: {'type': 'tool_start', 'tool': 'list_emails'}
+2026-07-03 15:18:16,628 [INFO] aether.executor.executor: Executing tool 'list_emails' with mapped parameters: {'limit': 10, 'unread_only': False, 'date': '2026-07-01'}
+2026-07-03 15:18:16,628 [INFO] aether.tools.email_tools: list_emails tool triggered. Limit: 10, Unread only: False, Date Type: None, Date: 2026-07-01
+2026-07-03 15:18:18,900 [INFO] aether.email.imap_client: IMAP search criterion: ON 01-Jul-2026
+2026-07-03 15:18:27,777 [INFO] aether.api.events: Emitting event: {'type': 'tool_complete', 'tool': 'list_emails', 'success': True}
+2026-07-03 15:18:27,777 [INFO] aether.api.events: Emitting event: {'type': 'step_complete', 'step': 'Retrieve recent emails (limit=10)', 'success': True}
+2026-07-03 15:18:27,777 [INFO] aether.assistant: === AETHER DIAGNOSTICS ===
+2026-07-03 15:18:27,777 [INFO] aether.assistant: User Query                 : give me list of 1st july 2026
+2026-07-03 15:18:27,778 [INFO] aether.assistant: Normalized Query           : give me list of 1st july 2026
+2026-07-03 15:18:27,778 [INFO] aether.assistant: Router Selected Categories : ['email.list']
+2026-07-03 15:18:27,778 [INFO] aether.assistant: Retrieved Candidate Tools  : ['list_emails', 'list_installed_apps', 'list_directory', 'compress_files', 'list_running_apps', 'file_info', 'read_file_content', 'list_tabs', 'read_email', 'get_clipboard']
+2026-07-03 15:18:27,778 [INFO] aether.assistant: Router latency             : 5.9852s
+2026-07-03 15:18:27,778 [INFO] aether.assistant: Action planner latency     : 27.8246s
+2026-07-03 15:18:27,778 [INFO] aether.assistant: Validator latency          : 0.0009s
+2026-07-03 15:18:27,778 [INFO] aether.assistant: Execution latency          : 11.1516s
+2026-07-03 15:18:27,778 [INFO] aether.assistant: Planner Prompt Tokens      : 572
+2026-07-03 15:18:27,779 [INFO] aether.assistant: Planner Completion Tokens  : 60
+2026-07-03 15:18:27,779 [INFO] aether.assistant: Generation Time            : 27.8138s
+2026-07-03 15:18:27,779 [INFO] aether.assistant: Parsing Time               : 0.0000s
+2026-07-03 15:18:27,779 [INFO] aether.assistant: Validation Time            : 0.0009s
+2026-07-03 15:18:27,779 [INFO] aether.assistant: JSON Extraction Time       : 0.0001s
+2026-07-03 15:18:27,779 [INFO] aether.assistant: Fallback Triggered (Yes/No): No
+2026-07-03 15:18:27,779 [INFO] aether.assistant: Failure Reason             : None
+2026-07-03 15:18:27,780 [INFO] aether.assistant: ==========================
+2026-07-03 15:18:27,780 [INFO] aether.assistant: Execution Result: ### Inbox Emails (10)
+
+1. **ID**: `3259`
+   - **Sender**: LinkedIn <updates-noreply@linkedin.com>
+   - **Subject**: Raghavender Rao Desai and others share their thoughts on LinkedIn
+   - **Date**: Wed, 1 Jul 2026 13:58:41 +0000 (UTC)
+   - **Status**: Read
+
+2. **ID**: `3258`
+   - **Sender**: Harsh from Kuberns <harsh.kanani@kuberns.cloud>
+   - **Subject**: Kuberns just got a major upgrade. You should see this first
+   - **Date**: Wed, 1 Jul 2026 06:30:18 +0000
+   - **Status**: Read
+
+3. **ID**: `3257`
+   - **Sender**: Cutshort Team <notify@cutshort.io>
+   - **Subject**: 2 fresh opportunities for you and your network
+   - **Date**: Wed, 1 Jul 2026 02:56:20 +0000
+   - **Status**: Read
+
+4. **ID**: `3256`
+   - **Sender**: Medium Daily Digest <noreply@medium.com>
+   - **Subject**: Document Strategy in RAG Systems: Which Data, When, and How Should It Be Processed? | Çağla Öztürk
+   - **Date**: Wed, 01 Jul 2026 01:30:00 +0000 (UTC)
+   - **Status**: Read
+
+5. **ID**: `3255`
+   - **Sender**: support@kuberns.cloud
+   - **Subject**: Your Monthly Bill - REC-2026-05-1ffa7b28
+   - **Date**: Wed, 1 Jul 2026 00:17:50 +0000
+   - **Status**: Read (Has Attachments)
+
+6. **ID**: `3254`
+   - **Sender**: support@kuberns.cloud
+   - **Subject**: Your Monthly Bill - REC-2026-07-1ffa7b28
+   - **Date**: Wed, 1 Jul 2026 00:17:50 +0000
+   - **Status**: Read (Has Attachments)
+
+7. **ID**: `3253`
+   - **Sender**: support@kuberns.cloud
+   - **Subject**: Your Monthly Bill - REC-2026-06-1ffa7b28
+   - **Date**: Wed, 1 Jul 2026 00:17:50 +0000
+   - **Status**: Read (Has Attachments)
+
+8. **ID**: `3252`
+   - **Sender**: support@kuberns.cloud
+   - **Subject**: Your Monthly Bill - REC-2026-04-1ffa7b28
+   - **Date**: Wed, 1 Jul 2026 00:17:49 +0000
+   - **Status**: Read (Has Attachments)
+
+9. **ID**: `3251`
+   - **Sender**: support@kuberns.cloud
+   - **Subject**: Your Monthly Bill - REC-2026-01-1ffa7b28
+   - **Date**: Wed, 1 Jul 2026 00:17:49 +0000
+   - **Status**: Read (Has Attachments)
+
+10. **ID**: `3250`
+   - **Sender**: support@kuberns.cloud
+   - **Subject**: Your Monthly Bill - REC-2026-03-1ffa7b28
+   - **Date**: Wed, 1 Jul 2026 00:17:49 +0000
+   - **Status**: Read (Has Attachments)
+2026-07-03 15:18:27,780 [INFO] aether.api.events: Emitting event: {'type': 'final_response', 'message': '### Inbox Emails (10)\n\n1. **ID**: `3259`\n   - **Sender**: LinkedIn <updates-noreply@linkedin.com>\n   - **Subject**: Raghavender Rao Desai and others share their thoughts on LinkedIn\n   - **Date**: Wed, 1 Jul 2026 13:58:41 +0000 (UTC)\n   - **Status**: Read\n\n2. **ID**: `3258`\n   - **Sender**: Harsh from Kuberns <harsh.kanani@kuberns.cloud>\n   - **Subject**: Kuberns just got a major upgrade. You should see this first\n   - **Date**: Wed, 1 Jul 2026 06:30:18 +0000\n   - **Status**: Read\n\n3. **ID**: `3257`\n   - **Sender**: Cutshort Team <notify@cutshort.io>\n   - **Subject**: 2 fresh opportunities for you and your network\n   - **Date**: Wed, 1 Jul 2026 02:56:20 +0000\n   - **Status**: Read\n\n4. **ID**: `3256`\n   - **Sender**: Medium Daily Digest <noreply@medium.com>\n   - **Subject**: Document Strategy in RAG Systems: Which Data, When, and How Should It Be Processed? | Çağla Öztürk\n   - **Date**: Wed, 01 Jul 2026 01:30:00 +0000 (UTC)\n   - **Status**: Read\n\n5. **ID**: `3255`\n   - **Sender**: support@kuberns.cloud\n   - **Subject**: Your Monthly Bill - REC-2026-05-1ffa7b28\n   - **Date**: Wed, 1 Jul 2026 00:17:50 +0000\n   - **Status**: Read (Has Attachments)\n\n6. **ID**: `3254`\n   - **Sender**: support@kuberns.cloud\n   - **Subject**: Your Monthly Bill - REC-2026-07-1ffa7b28\n   - **Date**: Wed, 1 Jul 2026 00:17:50 +0000\n   - **Status**: Read (Has Attachments)\n\n7. **ID**: `3253`\n   - **Sender**: support@kuberns.cloud\n   - **Subject**: Your Monthly Bill - REC-2026-06-1ffa7b28\n   - **Date**: Wed, 1 Jul 2026 00:17:50 +0000\n   - **Status**: Read (Has Attachments)\n\n8. **ID**: `3252`\n   - **Sender**: support@kuberns.cloud\n   - **Subject**: Your Monthly Bill - REC-2026-04-1ffa7b28\n   - **Date**: Wed, 1 Jul 2026 00:17:49 +0000\n   - **Status**: Read (Has Attachments)\n\n9. **ID**: `3251`\n   - **Sender**: support@kuberns.cloud\n   - **Subject**: Your Monthly Bill - REC-2026-01-1ffa7b28\n   - **Date**: Wed, 1 Jul 2026 00:17:49 +0000\n   - **Status**: Read (Has Attachments)\n\n10. **ID**: `3250`\n   - **Sender**: support@kuberns.cloud\n   - **Subject**: Your Monthly Bill - REC-2026-03-1ffa7b28\n   - **Date**: Wed, 1 Jul 2026 00:17:49 +0000\n   - **Status**: Read (Has Attachments)'}
+2026-07-03 15:22:45,084 [INFO] aether.assistant: User Query: search recent news about empire state tower
+2026-07-03 15:22:45,085 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Analyzing query...'}
+2026-07-03 15:22:45,085 [INFO] aether.assistant: Normalized Query: search recent news about empire state tower
+2026-07-03 15:22:45,085 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Selecting appropriate tool categories...'}
+2026-07-03 15:22:45,087 [INFO] aether.llm.category_selector: Running LLM Router stage on port 12345...
+2026-07-03 15:22:45,090 [INFO] aether.llm.model: llama-server sidecar (router) is already running at http://127.0.0.1:12345/health. Reusing it.
+2026-07-03 15:22:47,908 [INFO] aether.assistant: Router Output: {'intent': 'browser_search', 'complexity': 'single_step', 'categories': ['browser.search']}
+2026-07-03 15:22:47,908 [INFO] aether.assistant: Expanded Categories: ['browser.search']
+2026-07-03 15:22:47,909 [INFO] aether.assistant: Candidate Tools: ['search_web', 'search_files', 'search_youtube', 'list_emails', 'open_app']
+2026-07-03 15:22:47,910 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Formulating tool execution plan...'}
+2026-07-03 15:22:47,913 [INFO] aether.llm.action_planner: Running LLM Action Planner on port 12346 (Attempt 1)...
+2026-07-03 15:22:47,915 [INFO] aether.llm.model: llama-server sidecar (planner) is already running at http://127.0.0.1:12346/health. Reusing it.
+2026-07-03 15:23:02,098 [INFO] aether.assistant: Planner Output: [{'tool': 'search_web', 'arguments': {'query': 'recent news about empire state tower'}}]
+2026-07-03 15:23:02,099 [INFO] aether.assistant: Validation Result: Valid=True, Errors=[]
+2026-07-03 15:23:02,099 [INFO] aether.api.events: Emitting event: {'type': 'plan', 'steps': ["Search web for 'recent news about empire state tower'"]}
+2026-07-03 15:23:02,100 [INFO] aether.api.events: Emitting event: {'type': 'step_start', 'step': "Search web for 'recent news about empire state tower'"}
+2026-07-03 15:23:02,100 [INFO] aether.api.events: Emitting event: {'type': 'tool_start', 'tool': 'search_web'}
+2026-07-03 15:23:02,101 [INFO] aether.executor.executor: Executing tool 'search_web' with mapped parameters: {'query': 'recent news about empire state tower'}
+2026-07-03 15:23:02,574 [INFO] aether.api.events: Emitting event: {'type': 'tool_complete', 'tool': 'search_web', 'success': True}
+2026-07-03 15:23:02,575 [INFO] aether.api.events: Emitting event: {'type': 'step_complete', 'step': "Search web for 'recent news about empire state tower'", 'success': True}
+2026-07-03 15:23:02,576 [INFO] aether.assistant: === AETHER DIAGNOSTICS ===
+2026-07-03 15:23:02,576 [INFO] aether.assistant: User Query                 : search recent news about empire state tower
+2026-07-03 15:23:02,576 [INFO] aether.assistant: Normalized Query           : search recent news about empire state tower
+2026-07-03 15:23:02,576 [INFO] aether.assistant: Router Selected Categories : ['browser.search']
+2026-07-03 15:23:02,576 [INFO] aether.assistant: Retrieved Candidate Tools  : ['search_web', 'search_files', 'search_youtube', 'list_emails', 'open_app']
+2026-07-03 15:23:02,576 [INFO] aether.assistant: Router latency             : 2.8217s
+2026-07-03 15:23:02,576 [INFO] aether.assistant: Action planner latency     : 14.1869s
+2026-07-03 15:23:02,577 [INFO] aether.assistant: Validator latency          : 0.0010s
+2026-07-03 15:23:02,577 [INFO] aether.assistant: Execution latency          : 0.4757s
+2026-07-03 15:23:02,577 [INFO] aether.assistant: Planner Prompt Tokens      : 367
+2026-07-03 15:23:02,577 [INFO] aether.assistant: Planner Completion Tokens  : 26
+2026-07-03 15:23:02,578 [INFO] aether.assistant: Generation Time            : 14.1801s
+2026-07-03 15:23:02,578 [INFO] aether.assistant: Parsing Time               : 0.0000s
+2026-07-03 15:23:02,579 [INFO] aether.assistant: Validation Time            : 0.0010s
+2026-07-03 15:23:02,579 [INFO] aether.assistant: JSON Extraction Time       : 0.0000s
+2026-07-03 15:23:02,579 [INFO] aether.assistant: Fallback Triggered (Yes/No): No
+2026-07-03 15:23:02,580 [INFO] aether.assistant: Failure Reason             : None
+2026-07-03 15:23:02,580 [INFO] aether.assistant: ==========================
+2026-07-03 15:23:02,581 [INFO] aether.assistant: Execution Result: Successfully searched Google for 'recent news about empire state tower' in default browser.
+2026-07-03 15:23:02,581 [INFO] aether.api.events: Emitting event: {'type': 'final_response', 'message': "Successfully searched Google for 'recent news about empire state tower' in default browser."}
+2026-07-03 15:36:52,942 [INFO] aether.api.websocket: WebSocket client disconnected
+2026-07-03 15:49:35,293 [INFO] aether.api.websocket: WebSocket client disconnected
+2026-07-03 15:49:35,308 [ERROR] aether.api.websocket: Error sending LLM status: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2026-07-03 15:50:01,081 [INFO] aether.assistant: User Query: create file demo12.txt on desktop
+2026-07-03 15:50:01,081 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Analyzing query...'}
+2026-07-03 15:50:01,082 [INFO] aether.assistant: Normalized Query: create file demo12.txt on desktop
+2026-07-03 15:50:01,083 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Selecting appropriate tool categories...'}
+2026-07-03 15:50:01,085 [INFO] aether.llm.category_selector: Running LLM Router stage on port 12345...
+2026-07-03 15:50:01,102 [INFO] aether.llm.model: llama-server sidecar (router) is already running at http://127.0.0.1:12345/health. Reusing it.
+2026-07-03 15:50:05,298 [INFO] aether.assistant: Router Output: {'intent': 'file_operation', 'complexity': 'multi_step', 'categories': ['file.create', 'directory.create']}
+2026-07-03 15:50:05,299 [INFO] aether.assistant: Expanded Categories: ['file.create', 'directory.create']
+2026-07-03 15:50:05,300 [INFO] aether.assistant: Candidate Tools: ['create_file', 'create_folder', 'list_installed_apps', 'create_excel', 'open_app', 'close_app', 'switch_to_app', 'move_file', 'copy_file', 'rename_file', 'delete_file', 'open_file', 'file_info', 'append_file', 'read_file_content']
+2026-07-03 15:50:05,301 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Formulating tool execution plan...'}
+2026-07-03 15:50:05,309 [INFO] aether.llm.action_planner: Running LLM Action Planner on port 12346 (Attempt 1)...
+2026-07-03 15:50:05,316 [INFO] aether.llm.model: llama-server sidecar (planner) is already running at http://127.0.0.1:12346/health. Reusing it.
+2026-07-03 15:50:43,291 [INFO] aether.assistant: Planner Output: [{'tool': 'create_file', 'arguments': {'path': 'demo12.txt', 'location': 'Desktop'}}]
+2026-07-03 15:50:43,295 [INFO] aether.assistant: Validation Result: Valid=True, Errors=[]
+2026-07-03 15:50:43,295 [INFO] aether.api.events: Emitting event: {'type': 'plan', 'steps': ["Create file 'demo12.txt' in 'Desktop'"]}
+2026-07-03 15:50:43,296 [INFO] aether.api.events: Emitting event: {'type': 'step_start', 'step': "Create file 'demo12.txt' in 'Desktop'"}
+2026-07-03 15:50:43,296 [INFO] aether.api.events: Emitting event: {'type': 'tool_start', 'tool': 'create_file'}
+2026-07-03 15:50:44,454 [INFO] aether.api.prompt: prompt_user_sync: Dispatching user prompt '53448790-c6cd-4a2e-a9e8-abd1d67b92ab' to frontend via WebSocket.
+2026-07-03 15:50:44,456 [INFO] aether.api.events: Emitting event: {'type': 'user_prompt', 'prompt_id': '53448790-c6cd-4a2e-a9e8-abd1d67b92ab', 'title': "Where would you like me to create file 'demo12.txt'?", 'options': ['Desktop', 'Documents', 'Downloads', 'Current Directory', 'Custom Path']}
+2026-07-03 15:50:56,111 [INFO] aether.api.websocket: Received WS prompt_response: prompt_id=53448790-c6cd-4a2e-a9e8-abd1d67b92ab, selection=1
+2026-07-03 15:50:56,114 [INFO] aether.executor.executor: Executing tool 'create_file' with mapped parameters: {'filename': 'demo12.txt', 'location': 'C:\\Users\\lenovo\\Desktop?create_another=true'}
+2026-07-03 15:50:56,176 [INFO] aether.api.events: Emitting event: {'type': 'tool_complete', 'tool': 'create_file', 'success': True}
+2026-07-03 15:50:56,177 [INFO] aether.api.events: Emitting event: {'type': 'step_complete', 'step': "Create file 'demo12.txt' in 'Desktop'", 'success': True}
+2026-07-03 15:50:56,181 [INFO] aether.assistant: === AETHER DIAGNOSTICS ===
+2026-07-03 15:50:56,182 [INFO] aether.assistant: User Query                 : create file demo12.txt on desktop
+2026-07-03 15:50:56,182 [INFO] aether.assistant: Normalized Query           : create file demo12.txt on desktop
+2026-07-03 15:50:56,183 [INFO] aether.assistant: Router Selected Categories : ['file.create', 'directory.create']
+2026-07-03 15:50:56,183 [INFO] aether.assistant: Retrieved Candidate Tools  : ['create_file', 'create_folder', 'list_installed_apps', 'create_excel', 'open_app', 'close_app', 'switch_to_app', 'move_file', 'copy_file', 'rename_file', 'delete_file', 'open_file', 'file_info', 'append_file', 'read_file_content']
+2026-07-03 15:50:56,184 [INFO] aether.assistant: Router latency             : 4.2150s
+2026-07-03 15:50:56,185 [INFO] aether.assistant: Action planner latency     : 37.9892s
+2026-07-03 15:50:56,185 [INFO] aether.assistant: Validator latency          : 0.0036s
+2026-07-03 15:50:56,186 [INFO] aether.assistant: Execution latency          : 12.8852s
+2026-07-03 15:50:56,186 [INFO] aether.assistant: Planner Prompt Tokens      : 725
+2026-07-03 15:50:56,187 [INFO] aether.assistant: Planner Completion Tokens  : 46
+2026-07-03 15:50:56,187 [INFO] aether.assistant: Generation Time            : 37.9717s
+2026-07-03 15:50:56,188 [INFO] aether.assistant: Parsing Time               : 0.0000s
+2026-07-03 15:50:56,188 [INFO] aether.assistant: Validation Time            : 0.0036s
+2026-07-03 15:50:56,189 [INFO] aether.assistant: JSON Extraction Time       : 0.0000s
+2026-07-03 15:50:56,189 [INFO] aether.assistant: Fallback Triggered (Yes/No): No
+2026-07-03 15:50:56,190 [INFO] aether.assistant: Failure Reason             : None
+2026-07-03 15:50:56,190 [INFO] aether.assistant: ==========================
+2026-07-03 15:50:56,191 [INFO] aether.assistant: Execution Result: Successfully created file at 'C:\Users\lenovo\Desktop\demo12.txt'
+2026-07-03 15:50:56,192 [INFO] aether.api.events: Emitting event: {'type': 'final_response', 'message': "Successfully created file at 'C:\\Users\\lenovo\\Desktop\\demo12.txt'"}
+2026-07-03 15:51:10,513 [INFO] aether.assistant: User Query: delete demo12.txt
+2026-07-03 15:51:10,513 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Analyzing query...'}
+2026-07-03 15:51:10,514 [INFO] aether.assistant: Normalized Query: delete demo12.txt
+2026-07-03 15:51:10,515 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Selecting appropriate tool categories...'}
+2026-07-03 15:51:10,516 [INFO] aether.llm.category_selector: Running LLM Router stage on port 12345...
+2026-07-03 15:51:10,519 [INFO] aether.llm.model: llama-server sidecar (router) is already running at http://127.0.0.1:12345/health. Reusing it.
+2026-07-03 15:51:13,310 [INFO] aether.assistant: Router Output: {'intent': 'file_operation', 'complexity': 'single_step', 'categories': ['file.delete']}
+2026-07-03 15:51:13,310 [INFO] aether.assistant: Expanded Categories: ['file.delete']
+2026-07-03 15:51:13,311 [INFO] aether.assistant: Candidate Tools: ['delete_file', 'delete_folder', 'open_app', 'open_file', 'search_files']
+2026-07-03 15:51:13,312 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Formulating tool execution plan...'}
+2026-07-03 15:51:13,314 [INFO] aether.llm.action_planner: Running LLM Action Planner on port 12346 (Attempt 1)...
+2026-07-03 15:51:13,316 [INFO] aether.llm.model: llama-server sidecar (planner) is already running at http://127.0.0.1:12346/health. Reusing it.
+2026-07-03 15:51:25,888 [INFO] aether.assistant: Planner Output: [{'tool': 'delete_file', 'arguments': {'path': 'demo12.txt'}}]
+2026-07-03 15:51:25,890 [INFO] aether.assistant: Validation Result: Valid=True, Errors=[]
+2026-07-03 15:51:25,890 [INFO] aether.api.events: Emitting event: {'type': 'plan', 'steps': ["Delete file at 'demo12.txt'"]}
+2026-07-03 15:51:25,891 [INFO] aether.api.events: Emitting event: {'type': 'step_start', 'step': "Delete file at 'demo12.txt'"}
+2026-07-03 15:51:25,891 [INFO] aether.api.events: Emitting event: {'type': 'tool_start', 'tool': 'delete_file'}
+2026-07-03 15:51:25,894 [INFO] aether.api.prompt: prompt_user_sync: Dispatching user prompt '7280e635-5be8-4943-91cb-b0470bb56199' to frontend via WebSocket.
+2026-07-03 15:51:25,895 [INFO] aether.api.events: Emitting event: {'type': 'user_prompt', 'prompt_id': '7280e635-5be8-4943-91cb-b0470bb56199', 'title': 'Are you sure you want to delete demo12.txt?', 'options': ['Yes, continue', 'No, cancel']}
+2026-07-03 15:51:45,293 [INFO] aether.api.websocket: Received WS prompt_response: prompt_id=7280e635-5be8-4943-91cb-b0470bb56199, selection=1
+2026-07-03 15:51:45,294 [INFO] aether.validation.safety_checker: User confirmation for delete_file (target: demo12.txt): True
+2026-07-03 15:51:45,296 [INFO] aether.executor.executor: Executing tool 'delete_file' with mapped parameters: {'filename': 'demo12.txt'}
+2026-07-03 15:51:45,299 [INFO] aether.tools.file_search_service: FileSearchService.resolve: query='demo12.txt', is_directory=False
+2026-07-03 15:51:45,603 [INFO] aether.api.prompt: prompt_user_sync: Dispatching user prompt '97e3ec84-1297-4978-a3bb-3e088c03bb6d' to frontend via WebSocket.
+2026-07-03 15:51:45,605 [INFO] aether.api.events: Emitting event: {'type': 'user_prompt', 'prompt_id': '97e3ec84-1297-4978-a3bb-3e088c03bb6d', 'title': 'I couldn\'t find an exact match for "demo12.txt". Did you mean:', 'options': ['📄 demo12.txt (C:\\Users\\lenovo\\Desktop\\demo12.txt)', 'Cancel']}
+2026-07-03 15:51:56,608 [INFO] aether.api.websocket: Received WS prompt_response: prompt_id=97e3ec84-1297-4978-a3bb-3e088c03bb6d, selection=1
+2026-07-03 15:51:58,083 [INFO] aether.api.events: Emitting event: {'type': 'tool_complete', 'tool': 'delete_file', 'success': True}
+2026-07-03 15:51:58,084 [INFO] aether.api.events: Emitting event: {'type': 'step_complete', 'step': "Delete file at 'demo12.txt'", 'success': True}
+2026-07-03 15:51:58,084 [INFO] aether.assistant: === AETHER DIAGNOSTICS ===
+2026-07-03 15:51:58,085 [INFO] aether.assistant: User Query                 : delete demo12.txt
+2026-07-03 15:51:58,085 [INFO] aether.assistant: Normalized Query           : delete demo12.txt
+2026-07-03 15:51:58,085 [INFO] aether.assistant: Router Selected Categories : ['file.delete']
+2026-07-03 15:51:58,086 [INFO] aether.assistant: Retrieved Candidate Tools  : ['delete_file', 'delete_folder', 'open_app', 'open_file', 'search_files']
+2026-07-03 15:51:58,086 [INFO] aether.assistant: Router latency             : 2.7947s
+2026-07-03 15:51:58,087 [INFO] aether.assistant: Action planner latency     : 12.5758s
+2026-07-03 15:51:58,087 [INFO] aether.assistant: Validator latency          : 0.0010s
+2026-07-03 15:51:58,087 [INFO] aether.assistant: Execution latency          : 32.1934s
+2026-07-03 15:51:58,088 [INFO] aether.assistant: Planner Prompt Tokens      : 330
+2026-07-03 15:51:58,088 [INFO] aether.assistant: Planner Completion Tokens  : 24
+2026-07-03 15:51:58,089 [INFO] aether.assistant: Generation Time            : 12.5687s
+2026-07-03 15:51:58,089 [INFO] aether.assistant: Parsing Time               : 0.0000s
+2026-07-03 15:51:58,090 [INFO] aether.assistant: Validation Time            : 0.0010s
+2026-07-03 15:51:58,090 [INFO] aether.assistant: JSON Extraction Time       : 0.0000s
+2026-07-03 15:51:58,091 [INFO] aether.assistant: Fallback Triggered (Yes/No): No
+2026-07-03 15:51:58,091 [INFO] aether.assistant: Failure Reason             : None
+2026-07-03 15:51:58,092 [INFO] aether.assistant: ==========================
+2026-07-03 15:51:58,092 [INFO] aether.assistant: Execution Result: Successfully deleted 'demo12.txt' (moved to Recycle Bin).
+2026-07-03 15:51:58,093 [INFO] aether.api.events: Emitting event: {'type': 'final_response', 'message': "Successfully deleted 'demo12.txt' (moved to Recycle Bin)."}
+2026-07-03 15:57:10,031 [INFO] aether.api.websocket: WebSocket client disconnected
+2026-07-03 15:58:15,368 [INFO] aether.api.websocket: WebSocket client disconnected
+2026-07-03 15:58:15,370 [ERROR] aether.api.websocket: Error sending LLM status: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2026-07-03 16:11:11,106 [INFO] aether.api.websocket: WebSocket client disconnected
+2026-07-03 16:21:10,603 [INFO] aether.api.websocket: WebSocket client disconnected
+2026-07-03 16:21:10,606 [ERROR] aether.api.websocket: Error sending LLM status: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2026-07-03 16:21:12,683 [INFO] aether.api.websocket: WebSocket client disconnected
+2026-07-03 17:48:03,631 [INFO] aether.api.websocket: WebSocket client disconnected
+2026-07-03 17:48:03,664 [ERROR] aether.api.websocket: Error sending LLM status: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2026-07-03 17:55:47,350 [INFO] aether.assistant: User Query: open notepad
+2026-07-03 17:55:47,351 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Analyzing query...'}
+2026-07-03 17:55:47,353 [INFO] aether.assistant: Normalized Query: open notepad
+2026-07-03 17:55:47,353 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Selecting appropriate tool categories...'}
+2026-07-03 17:55:47,375 [INFO] aether.llm.category_selector: Running LLM Router stage on port 12345...
+2026-07-03 17:55:47,409 [INFO] aether.llm.model: llama-server sidecar (router) is already running at http://127.0.0.1:12345/health. Reusing it.
+2026-07-03 17:55:51,675 [INFO] aether.assistant: Router Output: {'intent': 'open_application', 'complexity': 'single_step', 'categories': ['system.app.open']}
+2026-07-03 17:55:51,676 [INFO] aether.assistant: Expanded Categories: ['system.app.open']
+2026-07-03 17:55:51,681 [INFO] aether.assistant: Candidate Tools: ['open_app', 'open_notepad_and_write', 'open_file', 'open_url', 'open_new_tab', 'list_tabs', 'read_email', 'read_word', 'read_excel']
+2026-07-03 17:55:51,682 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Formulating tool execution plan...'}
+2026-07-03 17:55:51,695 [INFO] aether.llm.action_planner: Running LLM Action Planner on port 12346 (Attempt 1)...
+2026-07-03 17:55:51,703 [INFO] aether.llm.model: llama-server sidecar (planner) is already running at http://127.0.0.1:12346/health. Reusing it.
+2026-07-03 17:56:16,233 [INFO] aether.assistant: Planner Output: [{'tool': 'open_notepad_and_write', 'arguments': {'text': ''}}]
+2026-07-03 17:56:16,234 [INFO] aether.validation.rule_validator: Auto-repaired step 0: downgraded open_notepad_and_write without text to open_app notepad.
+2026-07-03 17:56:16,246 [INFO] aether.assistant: Validation Result: Valid=True, Errors=[]
+2026-07-03 17:56:16,246 [INFO] aether.api.events: Emitting event: {'type': 'plan', 'steps': ['Open notepad']}
+2026-07-03 17:56:16,247 [INFO] aether.api.events: Emitting event: {'type': 'step_start', 'step': 'Open notepad'}
+2026-07-03 17:56:16,248 [INFO] aether.api.events: Emitting event: {'type': 'tool_start', 'tool': 'open_app'}
+2026-07-03 17:56:16,523 [INFO] aether.executor.executor: Executing tool 'open_app' with mapped parameters: {'app_name': 'notepad'}
+2026-07-03 17:56:16,838 [INFO] aether.api.events: Emitting event: {'type': 'tool_complete', 'tool': 'open_app', 'success': True}
+2026-07-03 17:56:16,839 [INFO] aether.api.events: Emitting event: {'type': 'step_complete', 'step': 'Open notepad', 'success': True}
+2026-07-03 17:56:16,839 [INFO] aether.assistant: === AETHER DIAGNOSTICS ===
+2026-07-03 17:56:16,840 [INFO] aether.assistant: User Query                 : open notepad
+2026-07-03 17:56:16,840 [INFO] aether.assistant: Normalized Query           : open notepad
+2026-07-03 17:56:16,841 [INFO] aether.assistant: Router Selected Categories : ['system.app.open']
+2026-07-03 17:56:16,841 [INFO] aether.assistant: Retrieved Candidate Tools  : ['open_app', 'open_notepad_and_write', 'open_file', 'open_url', 'open_new_tab', 'list_tabs', 'read_email', 'read_word', 'read_excel']
+2026-07-03 17:56:16,841 [INFO] aether.assistant: Router latency             : 4.3212s
+2026-07-03 17:56:16,841 [INFO] aether.assistant: Action planner latency     : 24.5497s
+2026-07-03 17:56:16,841 [INFO] aether.assistant: Validator latency          : 0.0118s
+2026-07-03 17:56:16,842 [INFO] aether.assistant: Execution latency          : 0.5922s
+2026-07-03 17:56:16,842 [INFO] aether.assistant: Planner Prompt Tokens      : 545
+2026-07-03 17:56:16,842 [INFO] aether.assistant: Planner Completion Tokens  : 23
+2026-07-03 17:56:16,842 [INFO] aether.assistant: Generation Time            : 24.5278s
+2026-07-03 17:56:16,843 [INFO] aether.assistant: Parsing Time               : 0.0000s
+2026-07-03 17:56:16,843 [INFO] aether.assistant: Validation Time            : 0.0118s
+2026-07-03 17:56:16,844 [INFO] aether.assistant: JSON Extraction Time       : 0.0000s
+2026-07-03 17:56:16,844 [INFO] aether.assistant: Fallback Triggered (Yes/No): No
+2026-07-03 17:56:16,844 [INFO] aether.assistant: Failure Reason             : None
+2026-07-03 17:56:16,844 [INFO] aether.assistant: ==========================
+2026-07-03 17:56:16,844 [INFO] aether.assistant: Execution Result: Successfully opened 'Notepad' from path 'C:\Windows\System32\notepad.exe'
+2026-07-03 17:56:16,845 [INFO] aether.api.events: Emitting event: {'type': 'final_response', 'message': "Successfully opened 'Notepad' from path 'C:\\Windows\\System32\\notepad.exe'"}
+2026-07-03 17:56:26,121 [INFO] aether.assistant: User Query: close notepad
+2026-07-03 17:56:26,122 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Analyzing query...'}
+2026-07-03 17:56:26,123 [INFO] aether.assistant: Normalized Query: close notepad
+2026-07-03 17:56:26,123 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Selecting appropriate tool categories...'}
+2026-07-03 17:56:26,125 [INFO] aether.llm.category_selector: Running LLM Router stage on port 12345...
+2026-07-03 17:56:26,130 [INFO] aether.llm.model: llama-server sidecar (router) is already running at http://127.0.0.1:12345/health. Reusing it.
+2026-07-03 17:56:28,705 [INFO] aether.assistant: Router Output: {'intent': 'system_management', 'complexity': 'single_step', 'categories': ['system.app.close']}
+2026-07-03 17:56:28,705 [INFO] aether.assistant: Expanded Categories: ['system.app.close']
+2026-07-03 17:56:28,706 [INFO] aether.assistant: Candidate Tools: ['close_app', 'open_notepad_and_write', 'close_tab', 'open_app', 'open_file']
+2026-07-03 17:56:28,706 [INFO] aether.api.events: Emitting event: {'type': 'thinking', 'message': 'Formulating tool execution plan...'}
+2026-07-03 17:56:28,709 [INFO] aether.llm.action_planner: Running LLM Action Planner on port 12346 (Attempt 1)...
+2026-07-03 17:56:28,712 [INFO] aether.llm.model: llama-server sidecar (planner) is already running at http://127.0.0.1:12346/health. Reusing it.
+2026-07-03 17:56:39,987 [INFO] aether.assistant: Planner Output: [{'tool': 'close_app', 'arguments': {'app_name': 'Notepad'}}]
+2026-07-03 17:56:39,988 [INFO] aether.assistant: Validation Result: Valid=True, Errors=[]
+2026-07-03 17:56:39,988 [INFO] aether.api.events: Emitting event: {'type': 'plan', 'steps': ['Close Notepad']}
+2026-07-03 17:56:39,989 [INFO] aether.api.events: Emitting event: {'type': 'step_start', 'step': 'Close Notepad'}
+2026-07-03 17:56:39,989 [INFO] aether.api.events: Emitting event: {'type': 'tool_start', 'tool': 'close_app'}
+2026-07-03 17:56:39,990 [INFO] aether.executor.executor: Executing tool 'close_app' with mapped parameters: {'app_name': 'Notepad'}
+2026-07-03 17:56:40,062 [INFO] aether.api.events: Emitting event: {'type': 'tool_complete', 'tool': 'close_app', 'success': True}
+2026-07-03 17:56:40,063 [INFO] aether.api.events: Emitting event: {'type': 'step_complete', 'step': 'Close Notepad', 'success': True}
+2026-07-03 17:56:40,063 [INFO] aether.assistant: === AETHER DIAGNOSTICS ===
+2026-07-03 17:56:40,063 [INFO] aether.assistant: User Query                 : close notepad
+2026-07-03 17:56:40,064 [INFO] aether.assistant: Normalized Query           : close notepad
+2026-07-03 17:56:40,064 [INFO] aether.assistant: Router Selected Categories : ['system.app.close']
+2026-07-03 17:56:40,064 [INFO] aether.assistant: Retrieved Candidate Tools  : ['close_app', 'open_notepad_and_write', 'close_tab', 'open_app', 'open_file']
+2026-07-03 17:56:40,064 [INFO] aether.assistant: Router latency             : 2.5810s
+2026-07-03 17:56:40,064 [INFO] aether.assistant: Action planner latency     : 11.2805s
+2026-07-03 17:56:40,065 [INFO] aether.assistant: Validator latency          : 0.0005s
+2026-07-03 17:56:40,065 [INFO] aether.assistant: Execution latency          : 0.0743s
+2026-07-03 17:56:40,066 [INFO] aether.assistant: Planner Prompt Tokens      : 334
+2026-07-03 17:56:40,066 [INFO] aether.assistant: Planner Completion Tokens  : 23
+2026-07-03 17:56:40,066 [INFO] aether.assistant: Generation Time            : 11.2727s
+2026-07-03 17:56:40,067 [INFO] aether.assistant: Parsing Time               : 0.0000s
+2026-07-03 17:56:40,067 [INFO] aether.assistant: Validation Time            : 0.0005s
+2026-07-03 17:56:40,067 [INFO] aether.assistant: JSON Extraction Time       : 0.0000s
+2026-07-03 17:56:40,067 [INFO] aether.assistant: Fallback Triggered (Yes/No): No
+2026-07-03 17:56:40,068 [INFO] aether.assistant: Failure Reason             : None
+2026-07-03 17:56:40,068 [INFO] aether.assistant: ==========================
+2026-07-03 17:56:40,068 [INFO] aether.assistant: Execution Result: Successfully closed 1 running instance(s) of 'Notepad'.
+2026-07-03 17:56:40,069 [INFO] aether.api.events: Emitting event: {'type': 'final_response', 'message': "Successfully closed 1 running instance(s) of 'Notepad'."}
+2026-07-03 19:27:50,496 [INFO] aether.api.websocket: WebSocket client disconnected

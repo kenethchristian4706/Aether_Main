@@ -306,10 +306,10 @@ TOOL_METADATA_SIMPLIFIED = {
         "Example_Args": 'recipient="john@example.com", subject="Hello", body="hello", confirmed=False'
     },
     "list_emails": {
-        "Purpose": "List or retrieve a list of recent email messages from the inbox.",
-        "Arguments": "limit, unread_only",
-        "Example_Query": "list my last 5 emails",
-        "Example_Args": 'limit=5, unread_only=False'
+        "Purpose": "List or retrieve a list of recent email messages from the inbox, optionally filtered by date.",
+        "Arguments": "limit, unread_only, date_type, date",
+        "Example_Query": "list today's unread emails",
+        "Example_Args": 'limit=10, unread_only=True, date_type="today", date=None'
     },
     "read_email": {
         "Purpose": "Read or retrieve full details of a specific email by its ID/UID, or by searching sender, date, or query.",
@@ -409,7 +409,7 @@ TOOL_ARGUMENTS_MAP = {
     "increase_brightness": [],
     "decrease_brightness": [],
     "send_email": ["recipient", "subject", "body", "confirmed"],
-    "list_emails": ["limit", "unread_only"],
+    "list_emails": ["limit", "unread_only", "date_type", "date"],
     "read_email": ["email_id", "sender", "date"]
 }
 

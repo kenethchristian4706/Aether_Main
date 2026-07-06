@@ -60,11 +60,16 @@ def send_email(
             "message": f"Failed to send email: {e}"
         }
 
-def list_emails(limit: int = 10, unread_only: bool = False) -> dict:
+def list_emails(
+    limit: int = 10,
+    unread_only: bool = False,
+    date_type: Optional[str] = None,
+    date: Optional[str] = None
+) -> dict:
     """
     Retrieve summaries of recent emails from the inbox.
     """
-    logger.info(f"list_emails tool triggered. Limit: {limit}, Unread only: {unread_only}")
+    logger.info(f"list_emails tool triggered. Limit: {limit}, Unread only: {unread_only}, Date Type: {date_type}, Date: {date}")
     
     if not email_manager.is_connected():
         return {
@@ -73,7 +78,23 @@ def list_emails(limit: int = 10, unread_only: bool = False) -> dict:
         }
         
     try:
-        emails = email_manager.list_emails(limit=limit, unread_only=unread_only)
+        import re
+        resolved_date_type = date_type
+        resolved_date = date
+        
+        if date in ("today", "yesterday"):
+            resolved_date_type = date
+            resolved_date = None
+        elif date and re.match(r"^\d{4}-\d{2}-\d{2}$", date):
+            resolved_date_type = "specific"
+            
+        filters = {}
+        if resolved_date_type:
+            filters["date_type"] = resolved_date_type
+            if resolved_date:
+                filters["date"] = resolved_date
+                
+        emails = email_manager.list_emails(limit=limit, unread_only=unread_only, filters=filters or None)
         if not emails:
             return {
                 "success": True,

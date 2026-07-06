@@ -212,10 +212,10 @@ TOOLS_METADATA: Dict[str, Dict[str, Any]] = {
         "Dependencies": "none"
     },
     "list_emails": {
-        "Purpose": "List or retrieve a list of recent email messages from the inbox.",
-        "Arguments": "limit (int, optional), unread_only (bool, optional)",
-        "Keywords": ["emails", "inbox", "list", "messages", "get emails", "check mail"],
-        "Aliases": ["list inbox", "check emails"],
+        "Purpose": "List or retrieve a list of recent email messages from the inbox, optionally filtered by date.",
+        "Arguments": "limit (int, optional), unread_only (bool, optional), date_type (str, optional - 'today', 'yesterday', or 'specific'), date (str, optional - format 'YYYY-MM-DD' when date_type is 'specific')",
+        "Keywords": ["emails", "inbox", "list", "messages", "get emails", "check mail", "today", "yesterday", "date"],
+        "Aliases": ["list inbox", "check emails", "today's email list", "yesterday's email list"],
         "Dependencies": "none"
     },
     "read_email": {

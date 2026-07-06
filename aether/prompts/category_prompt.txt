@@ -35,6 +35,8 @@ Allowed categories:
 - browser.tab.switch: Switching to an open browser tab.
 - network.download: Downloading a file from a URL.
 - email.send: Sending emails.
+- email.list: Retrieve or list recent emails.
+- email.read: Read or retrieve details of specific emails.
 - Email: Email summary workflow.
 - system.power.shutdown: Shutting down the PC.
 - system.power.restart: Restarting the PC.
@@ -135,6 +137,33 @@ User query: "Give me a summary of emails from 2026-07-25"
     "date_type": "specific",
     "date": "2026-07-25"
   }
+}
+User query: "Show today's email list"
+{
+  "intent": "email_list",
+  "complexity": "single_step",
+  "categories": ["email.list"]
+}
+
+User query: "List yesterday's email"
+{
+  "intent": "email_list",
+  "complexity": "single_step",
+  "categories": ["email.list"]
+}
+
+User query: "Show list of emails from 2026-07-02"
+{
+  "intent": "email_list",
+  "complexity": "single_step",
+  "categories": ["email.list"]
+}
+
+User query: "Read email with ID 3270"
+{
+  "intent": "email_read",
+  "complexity": "single_step",
+  "categories": ["email.read"]
 }
 <|im_end|>
 <|im_start|>user
